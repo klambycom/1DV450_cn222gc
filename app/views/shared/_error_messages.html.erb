@@ -1,10 +1,10 @@
-<% if @developer.errors.any? %>
+<% if @user.errors.any? %>
   <div id="error-explanation">
     <div class="alert alert-error">
-      Formuläret innehåller <%= pluralize @developer.errors.count, "error" %>.
+      Formuläret innehåller <%= pluralize @user.errors.count, "error" %>.
     </div>
     <ul>
-      <% @developer.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

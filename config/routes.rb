@@ -1,5 +1,5 @@
 Toerh::Application.routes.draw do
-  resources :developers
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
