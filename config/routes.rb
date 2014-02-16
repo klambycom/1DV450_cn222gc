@@ -1,8 +1,8 @@
 Toerh::Application.routes.draw do
   resources :home
 
-  post 'login'  => 'users#login',  as: :login
-  get  'logout' => 'users#logout', as: :logout
+  post 'login'  => 'sessions#login',  as: :login
+  get  'logout' => 'sessions#logout', as: :logout
 
   constraints subdomain: 'developers' do
     resources :users
