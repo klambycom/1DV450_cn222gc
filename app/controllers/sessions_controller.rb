@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:userid] = user.id
-      redirect_to user
+      redirect_back_or user
     else
       redirect_to root_path, notice: "Felaktiga uppgifter"
     end
