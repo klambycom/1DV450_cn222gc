@@ -10,11 +10,25 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = "Välkommen användare!"
-      redirect_to @user
+      redirect_to @user, success: "Välkommen användare!"
     else
       render 'new'
     end
+  end
+
+  def login
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:userid] = user.id
+      redirect_to user
+    else
+      redirect_to root_path, notice: "Felaktiga uppgifter"
+    end
+  end
+
+  def logout
+    session[:userid] = nil
+    redirect_to root_url, notice: "Utloggad"
   end
 
   private

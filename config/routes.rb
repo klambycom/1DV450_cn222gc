@@ -1,4 +1,9 @@
 Toerh::Application.routes.draw do
+  resources :home
+
+  post 'login'  => 'users#login',  as: :login
+  get  'logout' => 'users#logout', as: :logout
+
   constraints subdomain: 'developers' do
     resources :users
   end
@@ -7,7 +12,7 @@ Toerh::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

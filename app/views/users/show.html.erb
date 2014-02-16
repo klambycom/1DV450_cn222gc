@@ -4,3 +4,5 @@
   <%= gravatar_for @user %>
   <%= @user.email %>
 </h1>
+
+<%= link_to "Logga ut", logout_url(subdomain: false) %>
