@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215183823) do
+ActiveRecord::Schema.define(version: 20140216225216) do
+
+  create_table "licenses", force: true do |t|
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.string   "url",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resource_types", force: true do |t|
+    t.string   "type",       limit: 50, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "tag",        limit: 50, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",           limit: 254,              null: false
