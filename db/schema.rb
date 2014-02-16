@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216225216) do
+ActiveRecord::Schema.define(version: 20140216230620) do
 
   create_table "licenses", force: true do |t|
     t.string   "name",        null: false
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140216225216) do
 
   create_table "resource_types", force: true do |t|
     t.string   "type",       limit: 50, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", force: true do |t|
+    t.integer  "resource_type_id"
+    t.integer  "license_id"
+    t.integer  "user_id"
+    t.string   "name",                          null: false
+    t.string   "url",              default: "", null: false
+    t.string   "description",      default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
