@@ -6,6 +6,7 @@ Toerh::Application.routes.draw do
 
   constraints subdomain: 'developers' do
     resources :users
+    resources :apps
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
