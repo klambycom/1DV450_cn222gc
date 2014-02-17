@@ -1,9 +1,9 @@
 class CreateResources < ActiveRecord::Migration
   def change
     create_table :resources do |t|
-      t.references :resource_type
-      t.references :license
-      t.references :user
+      t.belongs_to :resource_type
+      t.belongs_to :license
+      t.belongs_to :user
 
       t.string :name, null: false
       t.string :url, default: "", null: false
