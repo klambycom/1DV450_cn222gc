@@ -9,7 +9,7 @@ Toerh::Application.routes.draw do
     resources :apps
   end
 
-  namespace :api, path: "", constraints: { subdomain: 'api' } do
+  namespace :api, path: "", defaults: { format: :json }, constraints: { subdomain: 'api' } do
     resources :tags
     resources :licenses
     resources :resources
