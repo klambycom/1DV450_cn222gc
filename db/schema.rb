@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217092018) do
+ActiveRecord::Schema.define(version: 20140217211051) do
+
+  create_table "apps", force: true do |t|
+    t.string   "name",         limit: 50,                 null: false
+    t.string   "url",                     default: "",    null: false
+    t.string   "description",             default: "",    null: false
+    t.boolean  "public",                  default: false
+    t.string   "access_token",                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "licenses", force: true do |t|
     t.string   "name",        null: false
