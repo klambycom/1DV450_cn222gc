@@ -9,6 +9,17 @@ Toerh::Application.routes.draw do
     resources :apps
   end
 
+  namespace :api, path: "", constraints: { subdomain: 'api' } do
+    resources :tags
+    resources :licenses
+    resources :resources
+    resources :users
+    resources :resource_types
+
+    #namespace :v2 do
+    #end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
