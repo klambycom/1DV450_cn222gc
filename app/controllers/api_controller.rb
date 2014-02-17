@@ -29,6 +29,14 @@ class ApiController  < ActionController::Base
     end
 
   private
+  
+    def request_http_token_authentication(realm = "Application")  
+      headers["WWW-Authenticate"] = %(Token realm="#{realm.gsub(/"/, "")}")
+      render :json => {
+               :error => "HTTP Token: Access denied. You did not provide an valid API key." 
+             }.to_json,
+             :status => :unauthorized
+    end
 
     def restrict_access
       authenticate_or_request_with_http_token do |token, options|
