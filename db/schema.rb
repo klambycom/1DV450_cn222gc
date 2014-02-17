@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216232910) do
+ActiveRecord::Schema.define(version: 20140217092018) do
 
   create_table "licenses", force: true do |t|
     t.string   "name",        null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140216232910) do
   end
 
   create_table "resource_types", force: true do |t|
-    t.string   "type",       limit: 50, null: false
+    t.string   "name",       limit: 50, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
