@@ -11,7 +11,7 @@ class ApiController  < ActionController::Base
       end
     end
 
-    def render_result
+    def render_error
       begin
         yield
       rescue ActiveRecord::RecordInvalid => e
