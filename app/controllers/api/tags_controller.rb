@@ -1,18 +1,32 @@
-class Api::TagsController < ApplicationController
+class Api::TagsController < ApiController
+  before_filter :find_tag, except: [:index, :create]
+  around_filter :render_error, except: [:index]
+
   def index
     @tags = Tag.all
   end
 
   def show
-    @tag = Tag.find params[:id]
   end
 
   def create
+    @tag = Tag.create! tag_params
+    render 'api/tags/show'
   end
 
   def update
+    @tag.update_attributes! tag_params
+    render 'api/tags/show'
   end
 
   def destroy
+    @tag.destroy!
+    render 'api/tags/show'
   end
+
+  private
+
+    def tag_params
+      params.permit(:tag)
+    end
 end
