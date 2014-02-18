@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title "Title", yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <nav role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Developers</a>
+        </div>
+      </div>
+    </nav>
+
+    <% flash.each do |type, error| %>
+      <div class="alert alert-<%= type %>"><%= error %></div>
+    <% end %>
+
+    <%= yield %>
+
+    <%= debug params if Rails.env.development? %>
+  </div>
+</body>
+</html>
