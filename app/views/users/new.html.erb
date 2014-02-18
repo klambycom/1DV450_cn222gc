@@ -2,47 +2,4 @@
 
 <h1>Registrera dig</h1>
 
-<%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
-  <%= render 'shared/error_messages' %>
-
-  <div class="form-group">
-    <%= f.label :firstname, "Förnamn" %>
-    <div class="form-field">
-      <%= f.text_field :firstname %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :lastname, "Efternamn" %>
-    <div class="form-field">
-      <%= f.text_field :lastname %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email, "E-postadress" %>
-    <div class="form-field">
-      <%= f.text_field :email %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password, "Lösenord" %>
-    <div class="form-field">
-      <%= f.password_field :password %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation, "Lösenordet igen" %>
-    <div class="form-field">
-      <%= f.password_field :password_confirmation %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="form-buttons">
-      <%= f.submit "Registrera mig som utvecklare", class: "btn-primary" %>
-    </div>
-  </div>
-<% end %>
+<%= render partial: 'users/register', object: @user %>
