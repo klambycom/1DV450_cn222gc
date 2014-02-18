@@ -1,4 +1,5 @@
 class Api::LicensesController < ApiController
+  doorkeeper_for :all
   before_filter :find_license, except: [:index, :create]
   around_filter :render_error, except: [:index]
 

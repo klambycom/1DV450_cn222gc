@@ -1,4 +1,5 @@
 class Api::TagsController < ApiController
+  doorkeeper_for :all
   before_filter :find_tag, except: [:index, :create]
   around_filter :render_error, except: [:index]
 

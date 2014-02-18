@@ -1,4 +1,5 @@
 class Api::ResourceTypesController < ApiController
+  doorkeeper_for :all
   before_filter :find_resource_type, except: [:index, :create]
   around_filter :render_error, except: [:index]
 
