@@ -19,5 +19,19 @@ module Toerh
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    #config.to_prepare do
+    #  # Base layout. Uses app/views/layouts/my_layout.html.erb
+    #  Doorkeeper::ApplicationController.layout "my_layout"
+
+    #  # Only Applications list
+    #  Doorkeeper::ApplicationsController.layout "my_layout"
+
+    #  # Only Authorization endpoint
+    #  Doorkeeper::AuthorizationsController.layout "my_layout"
+
+    #  # Only Authorized Applications
+    #  Doorkeeper::AuthorizedApplicationsController.layout "my_layout"
+    #end
   end
 end
