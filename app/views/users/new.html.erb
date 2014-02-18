@@ -2,23 +2,47 @@
 
 <h1>Registrera dig</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: { class: "form-horizontal" }) do |f| %>
   <%= render 'shared/error_messages' %>
 
-  <%= f.label :firstname, "Förnamn" %>
-  <%= f.text_field :firstname %>
+  <div class="form-group">
+    <%= f.label :firstname, "Förnamn" %>
+    <div class="form-field">
+      <%= f.text_field :firstname %>
+    </div>
+  </div>
 
-  <%= f.label :lastname, "Efternamn" %>
-  <%= f.text_field :lastname %>
+  <div class="form-group">
+    <%= f.label :lastname, "Efternamn" %>
+    <div class="form-field">
+      <%= f.text_field :lastname %>
+    </div>
+  </div>
 
-  <%= f.label :email, "E-postadress" %>
-  <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, "E-postadress" %>
+    <div class="form-field">
+      <%= f.text_field :email %>
+    </div>
+  </div>
 
-  <%= f.label :password, "Lösenord" %>
-  <%= f.password_field :password %>
+  <div class="form-group">
+    <%= f.label :password, "Lösenord" %>
+    <div class="form-field">
+      <%= f.password_field :password %>
+    </div>
+  </div>
 
-  <%= f.label :password_confirmation, "Lösenordet igen" %>
-  <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Lösenordet igen" %>
+    <div class="form-field">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
-  <%= f.submit "Registrera mig som utvecklare" %>
+  <div class="form-group">
+    <div class="form-buttons">
+      <%= f.submit "Registrera mig som utvecklare", class: "btn-primary" %>
+    </div>
+  </div>
 <% end %>

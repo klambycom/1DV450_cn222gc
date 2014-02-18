@@ -8,6 +8,8 @@ Toerh::Application.routes.draw do
   constraints subdomain: 'developers' do
     resources :users
     resources :apps
+
+    get '' => 'apps#index', as: :developers_root
   end
 
   namespace :api, path: "", defaults: { format: :json }, constraints: { subdomain: 'api' } do

@@ -1,0 +1,25 @@
+.form-horizontal {
+  .form-group {
+    label {
+      @extend .control-label;
+      @extend .col-sm-2;
+    }
+
+    .form-field {
+      @extend .col-sm-10;
+
+      input {
+        @extend .form-control;
+      }
+    }
+
+    .form-buttons {
+      @extend .col-sm-offset-2;
+      @extend .col-sm-10;
+
+      button, input {
+        @extend .btn;
+      }
+    }
+  }
+}
