@@ -26,4 +26,10 @@ class ApiController  < ActionController::Base
       return from_id(method.to_s.match(/^find_(.*)$/)[1]) if method.to_s =~ /^find_(.*)$/
       super
     end
+
+    def restrict_access_with_token
+      authenticate_or_request_with_http_token do |token, options|
+        Doorkeeper::Application.exists? uid: token
+      end
+    end
 end

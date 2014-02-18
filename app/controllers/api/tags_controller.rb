@@ -1,5 +1,7 @@
 class Api::TagsController < ApiController
-  doorkeeper_for :all
+  doorkeeper_for :all, except: [:index, :show]
+  before_filter :restrict_access_with_token, except: [:create, :update, :destroy]
+
   before_filter :find_tag, except: [:index, :create]
   around_filter :render_error, except: [:index]
 
