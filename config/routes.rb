@@ -1,4 +1,5 @@
 Toerh::Application.routes.draw do
+  use_doorkeeper
   resources :home
 
   post 'login'  => 'sessions#login',  as: :login

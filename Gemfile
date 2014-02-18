@@ -46,3 +46,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'rabl'
 gem 'oj'
+
+gem 'doorkeeper'
