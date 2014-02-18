@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :resources
+  has_many :applications, class_name: 'Doorkeeper::Application', as: :owner
 
   validates :firstname, presence: true
   validates :lastname, presence: true
