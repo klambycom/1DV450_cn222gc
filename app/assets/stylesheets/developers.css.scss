@@ -1,4 +1,43 @@
-nav {
+#developers-nav {
   @extend .navbar;
-  @extend .navbar-default;
+  @extend .navbar-inverse;
+
+  margin-top: 15px;
+
+  #navbar-user {
+    @extend .navbar-text;
+    @extend .navbar-right;
+  }
+
+  .nav-btn {
+    @extend .btn;
+    @extend .btn-default;
+    @extend .navbar-btn;
+    @extend .navbar-right;
+  }
+
+  .nav-user {
+    @extend .navbar-text;
+    @extend .navbar-right;
+
+    padding-right: 15px;
+  }
+
+  .nav-header {
+    @extend .navbar-header;
+
+    a {
+      @extend .navbar-brand;
+    }
+  }
+
+  .nav-links {
+    @extend .collapse;
+    @extend .navbar-collapse;
+
+    ul {
+      @extend .nav;
+      @extend .navbar-nav;
+    }
+  }
 }

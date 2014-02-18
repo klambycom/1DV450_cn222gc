@@ -8,10 +8,27 @@
 </head>
 <body>
   <div class="container">
-    <nav role="navigation">
+    <nav id="developers-nav" role="navigation">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Developers</a>
+        <div class="nav-header"><%= link_to "Developers", developers_root_path %></div>
+
+        <div class="nav-links">
+          <ul>
+            <li class="active"><%= link_to "Första sidan", developers_root_path %></li>
+            <li><%= link_to "Documentation", developers_docs_path %></li>
+            <li><%= link_to "Kontrollpanelen", developers_dashboard_index_path %></li>
+          </ul>
+
+          <% unless current_user %>
+            <%= link_to "Logga in", login_url(subdomain: false), class: "nav-btn" %>
+          <% end %>
+
+          <% if current_user %>
+            <%= link_to "Logga ut", logout_url(subdomain: false), class: "nav-btn" %>
+            <p class="nav-user">
+              Inloggad som <%= current_user.firstname %>
+            </p>
+          <% end %>
         </div>
       </div>
     </nav>

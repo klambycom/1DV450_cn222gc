@@ -10,7 +10,8 @@ Toerh::Application.routes.draw do
   namespace :developers, path: "", constraints: { subdomain: 'developers' } do
     resources :apps
     resources :dashboard
-    get '' => 'docs#index', as: :developers_root
+    resources :docs
+    get '' => 'docs#index', as: :root
   end
 
   namespace :api, path: "", defaults: { format: :json }, constraints: { subdomain: 'api' } do
