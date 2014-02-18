@@ -5,11 +5,11 @@ Toerh::Application.routes.draw do
   post 'login'  => 'sessions#login',  as: :login
   get  'logout' => 'sessions#logout', as: :logout
 
-  constraints subdomain: 'developers' do
-    resources :users
-    resources :apps
+  resources :users
 
-    get '' => 'developers#index', as: :developers_root
+  namespace :developers, path: "", constraints: { subdomain: 'developers' } do
+    resources :apps
+    get '' => 'dashboard#index', as: :developers_root
   end
 
   namespace :api, path: "", defaults: { format: :json }, constraints: { subdomain: 'api' } do

@@ -1,4 +1,4 @@
-class AppsController < ApplicationController
+class Developers::AppsController < Developers::BaseController
   before_action :require_login
 
   def index
