@@ -18,4 +18,8 @@ module Developers::DocsHelper
     }
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
+
+  def full_date date
+    date.strftime("%d %b %Y %H:%M")   
+  end
 end
