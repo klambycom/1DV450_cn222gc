@@ -9,7 +9,6 @@ Toerh::Application.routes.draw do
   resources :users
 
   namespace :developers, path: "", constraints: { subdomain: 'developers' } do
-    resources :apps
     resources :dashboard
     resources :docs
     get '' => 'docs#index', as: :root
