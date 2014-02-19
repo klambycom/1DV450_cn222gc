@@ -21,6 +21,10 @@ class Developers::DashboardController < Developers::BaseController
   end
 
   def show
+    unless current_user_is_owner?
+      flash[:error] = "Kunde inte hitta den valda applikationen"
+      redirect_to developers_dashboard_index_url
+    end
   end
 
   def edit
@@ -47,5 +51,9 @@ class Developers::DashboardController < Developers::BaseController
 
     def application_params
       params.require(:application).permit(:name, :redirect_uri)
+    end
+
+    def current_user_is_owner?
+      @application.owner == current_user
     end
 end
