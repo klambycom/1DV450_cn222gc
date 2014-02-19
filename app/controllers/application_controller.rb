@@ -4,16 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-    helper_method :current_user
+    helper_method :current_user, :logged_in?
 
     def current_user
       @current_user ||= User.find session[:user_id] if session[:user_id]
     end
 
+    def logged_in?
+      current_user.present?
+    end
+
     def require_login
       if current_user.nil?
         store_location
-        redirect_to root_url(subdomain: false)
+        redirect_to login_url(subdomain: false)
       end
     end
 

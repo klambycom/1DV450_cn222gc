@@ -20,9 +20,11 @@
             <li class="<%= highlight?(:docs) %>">
               <%= link_to "Documentation", developers_docs_path %>
             </li>
-            <li class="<%= highlight?(:dashboard) %>">
-              <%= link_to "Kontrollpanelen", developers_dashboard_index_path %>
-            </li>
+            <% if logged_in? %>
+              <li class="<%= highlight?(:dashboard) %>">
+                <%= link_to "Kontrollpanelen", developers_dashboard_index_path %>
+              </li>
+            <% end %>
           </ul>
 
           <% unless current_user %>

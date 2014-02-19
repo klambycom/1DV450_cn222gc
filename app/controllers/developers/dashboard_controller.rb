@@ -1,5 +1,6 @@
 class Developers::DashboardController < Developers::BaseController
   before_filter :find_application, except: [:index, :new, :create]
+  before_action :require_login
 
   def index
   end
