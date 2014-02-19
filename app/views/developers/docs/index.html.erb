@@ -6,23 +6,36 @@
   <p>Find me in app/views/developers/index.html.erb</p>
 </div>
 
-<h2>Dokumentation</h2>
-<ul>
-  <% @docs_other.each do |doc| %>
-    <li><%= link_to doc.title, developers_doc_path(doc) %></li>
-  <% end %>
-</ul>
+<div class="col-md-4">
+  <h2>Dokumentation</h2>
+  <ul>
+    <% @docs_other.each do |doc| %>
+      <li><%= link_to doc.title, developers_doc_path(doc) %></li>
+    <% end %>
+  </ul>
 
-<h3>API</h3>
-<ul>
-  <% @docs_api.each do |doc| %>
-    <li>
-      <span class="method method-<%= doc.method %>"><%= doc.method %></span>
-      <%= link_to doc.title, developers_doc_path(doc) %>
-    </li>
-  <% end %>
-</ul>
+  <h3>API</h3>
+  <ul>
+    <% @docs_api.each do |doc| %>
+      <li>
+        <span class="method method-<%= doc.method %>"><%= doc.method %></span>
+        <%= link_to doc.title, developers_doc_path(doc) %>
+      </li>
+    <% end %>
+  </ul>
 
-<% if current_user.admin? %>
-  <h4><%= link_to 'Skapa nytt dokument', new_developers_doc_path %></h4>
-<% end %>
+  <% if current_user.admin? %>
+    <h4><%= link_to 'Skapa nytt dokument', new_developers_doc_path %></h4>
+  <% end %>
+</div>
+
+<div class="col-md-8">
+  <% if @changelog.present? %>
+    <div class="page-header">
+      <h1>Changelog</h1>
+    </div>
+    <%= @changelog.content %>
+  <% else %>
+    <p>Säg till en administratör att skapa ett dokument med namnet changelog.</p>
+  <% end %>
+</div>

@@ -11,6 +11,7 @@ class Doc < ActiveRecord::Base
 
   scope :api, -> { where.not(method: :no_method) }
   scope :other, -> { where(method: :no_method) }
+  scope :changelog, -> { where(title: "Changelog").first }
 
   validates :title, presence: true,
                     length: { maximum: 100 }

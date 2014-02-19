@@ -5,6 +5,7 @@ class Developers::DocsController < Developers::BaseController
   def index
     @docs_api = Doc.api
     @docs_other = Doc.other
+    @changelog = Doc.changelog
   end
 
   def new
