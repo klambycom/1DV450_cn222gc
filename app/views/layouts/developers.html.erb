@@ -14,9 +14,15 @@
 
         <div class="nav-links">
           <ul>
-            <li class="active"><%= link_to "Första sidan", developers_root_path %></li>
-            <li><%= link_to "Documentation", developers_docs_path %></li>
-            <li><%= link_to "Kontrollpanelen", developers_dashboard_index_path %></li>
+            <li  class="<%= highlight?(:home) %>">
+              <%= link_to "Första sidan", developers_root_path %>
+            </li>
+            <li class="<%= highlight?(:docs) %>">
+              <%= link_to "Documentation", developers_docs_path %>
+            </li>
+            <li class="<%= highlight?(:dashboard) %>">
+              <%= link_to "Kontrollpanelen", developers_dashboard_index_path %>
+            </li>
           </ul>
 
           <% unless current_user %>
