@@ -12,7 +12,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to @user, success: "Välkommen användare!"
+      session[:user_id] = @user.id
+      flash[:success] = "Välkommen användare!"
+      redirect_back_or @user
     else
       render 'new'
     end

@@ -7,7 +7,7 @@
       <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
     <% end %>
     <%= @doc.title %>
-    <% if current_user.admin? %>
+    <% if admin? %>
       <small>
         <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
         <%= render 'delete_form', doc: @doc %>
