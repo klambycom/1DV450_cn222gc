@@ -19,5 +19,5 @@
 <small>Uppdaterades senast den <%= @doc.updated_at %></small>
 
 <div class="content">
-  <%= @doc.content %>
+  <%= markdown @doc.content %>
 </div>

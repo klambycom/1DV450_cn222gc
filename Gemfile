@@ -49,3 +49,5 @@ gem 'rabl'
 gem 'oj'
 
 gem 'doorkeeper'
+
+gem 'redcarpet'

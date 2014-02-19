@@ -34,7 +34,7 @@
     <div class="page-header">
       <h1>Changelog</h1>
     </div>
-    <%= @changelog.content %>
+    <%= markdown @changelog.content %>
   <% else %>
     <p>Säg till en administratör att skapa ett dokument med namnet changelog.</p>
   <% end %>
