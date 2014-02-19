@@ -1,0 +1,27 @@
+<%= form_for(application, url: route, html: { class: "form-horizontal" }) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Applikationens namn" %>
+    <div class="form-field">
+      <%= f.text_field :name %>
+      <%= errors_for @application, :name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :redirect_uri %>
+    <div class="form-field">
+      <%= f.text_area :redirect_uri, class: "form-control" %>
+      <%= errors_for @application, :redirect_uri %>
+      <span class="help-inline">En URI per rad.</span>
+      <% if Doorkeeper.configuration.test_redirect_uri %>
+        <span class="help-inline">Använd <%= Doorkeeper.configuration.test_redirect_uri %> för lokala tester.</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-buttons">
+      <%= f.submit submit_text, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

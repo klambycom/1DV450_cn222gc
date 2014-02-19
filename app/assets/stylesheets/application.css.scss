@@ -1,3 +1,19 @@
 @import "bootstrap";
 @import "form";
 @import "developers";
+
+.alert-notice {
+  @extend .bg-info;
+}
+
+.alert-success {
+  @extend .bg-success;
+}
+
+.alert-warning {
+  @extend .bg-warning;
+}
+
+.alert-error {
+  @extend .bg-danger;
+}

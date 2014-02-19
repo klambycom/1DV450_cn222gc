@@ -45,9 +45,17 @@
 .page-header {
   h1 {
     small {
-      a {
+      a, input {
         @extend .pull-right;
         @extend .btn;
+      }
+
+      form {
+        display: inline;
+
+        input {
+          color: #478EB8;
+        }
       }
     }
   }

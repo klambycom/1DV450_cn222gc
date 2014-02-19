@@ -1,0 +1,7 @@
+<div class="page-header">
+  <h1>Ändra applikationen "<%= @application.name %>"</h1>
+</div>
+
+<%= render 'form', application: @application,
+                   route: developers_dashboard_path,
+                   submit_text: "Uppdatera applikationen" %>
