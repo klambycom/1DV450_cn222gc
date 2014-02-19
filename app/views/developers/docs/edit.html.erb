@@ -1,0 +1,14 @@
+<% provide :title, "Ändra dokumentet" %>
+<% highlight :docs %>
+
+<div class="page-header">
+  <h1>
+    <% if @doc.api? %>
+      <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
+    <% end %>
+    <%= @doc.title %>
+    <small>Ändra dokumentet</small>
+  </h1>
+</div>
+
+<%= render 'form', doc: @doc, path: developers_doc_path %>

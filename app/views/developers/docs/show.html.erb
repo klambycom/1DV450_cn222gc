@@ -1,0 +1,21 @@
+<% provide :title, @doc.title %>
+<% highlight :docs %>
+
+<div class="page-header">
+  <h1>
+    <% if @doc.api? %>
+      <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
+    <% end %>
+    <%= @doc.title %>
+    <small>
+      <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
+      <%= render 'delete_form', doc: @doc %>
+    </small>
+  </h1>
+</div>
+
+<small>Uppdaterades senast den <%= @doc.updated_at %></small>
+
+<div class="content">
+  <%= @doc.content %>
+</div>

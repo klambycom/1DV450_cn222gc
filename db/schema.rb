@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218212652) do
+ActiveRecord::Schema.define(version: 20140219182207) do
 
   create_table "apps", force: true do |t|
     t.string   "name",         limit: 50,                 null: false
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20140218212652) do
     t.string   "description",             default: "",    null: false
     t.boolean  "public",                  default: false
     t.string   "access_token",                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "docs", force: true do |t|
+    t.string   "title",      limit: 100,              null: false
+    t.text     "content",                             null: false
+    t.string   "method",     limit: 10,  default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,12 +112,13 @@ ActiveRecord::Schema.define(version: 20140218212652) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",           limit: 254,              null: false
-    t.string   "password_digest",                          null: false
+    t.string   "email",           limit: 254,                 null: false
+    t.string   "password_digest",                             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "firstname",                   default: "", null: false
-    t.string   "lastname",                    default: "", null: false
+    t.string   "firstname",                   default: "",    null: false
+    t.string   "lastname",                    default: "",    null: false
+    t.boolean  "admin",                       default: false
   end
 
 end

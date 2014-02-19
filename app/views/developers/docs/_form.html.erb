@@ -1,0 +1,31 @@
+<%= form_for(doc, url: path) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Rubrik" %>
+    <div class="form-field">
+      <%= f.text_field :title %>
+      <%= errors_for doc, :title %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :method, "Method" %>
+    <div class="form-field">
+      <%= f.select :method, options_for_select(Doc::METHODS_SWE.zip(Doc::METHODS), doc.method) %>
+      <%= errors_for doc, :method %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "Innehåll" %>
+    <div class="form-field">
+      <%= f.text_area :content, class: "form-control", rows: 30 %>
+      <%= errors_for doc, :content %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-buttons">
+      <%= f.submit "Spara", class: "btn-primary" %>
+    </div>
+  </div>
+<% end %>

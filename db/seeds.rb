@@ -56,3 +56,37 @@ resource.tags << rockTag
 resource.tags << psychedelicTag
 
 resource.save
+
+#################
+# Documentation #
+#################
+
+Doc.create title: 'Kom igång', method: :no_method, content: '...'
+Doc.create title: 'Felkoder', method: :no_method, content: '...'
+
+Doc.create title: 'Licenses', method: :get, content: '...'
+Doc.create title: 'Licenses/:id', method: :get, content: '...'
+Doc.create title: 'Licenses', method: :post, content: '...'
+Doc.create title: 'Licenses/:id', method: :put, content: '...'
+Doc.create title: 'Licenses/:id', method: :delete, content: '...'
+
+Doc.create title: 'ResourceTypes', method: :get, content: '...'
+Doc.create title: 'ResourceTypes/:id', method: :get, content: '...'
+Doc.create title: 'ResourceTypes', method: :post, content: '...'
+Doc.create title: 'ResourceTypes/:id', method: :put, content: '...'
+Doc.create title: 'ResourceTypes/:id', method: :delete, content: '...'
+
+Doc.create title: 'Resources', method: :get, content: '...'
+Doc.create title: 'Resources/:id', method: :get, content: '...'
+Doc.create title: 'Resources', method: :post, content: '...'
+Doc.create title: 'Resources/:id', method: :put, content: '...'
+Doc.create title: 'Resources/:id', method: :delete, content: '...'
+
+Doc.create title: 'Tags', method: :get, content: '...'
+Doc.create title: 'Tags/:id', method: :get, content: '...'
+Doc.create title: 'Tags', method: :post, content: '...'
+Doc.create title: 'Tags/:id', method: :put, content: '...'
+Doc.create title: 'Tags/:id', method: :delete, content: '...'
+
+Doc.create title: 'Users', method: :get, content: '...'
+Doc.create title: 'Users/:id', method: :get, content: '...'
