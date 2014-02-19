@@ -22,3 +22,7 @@
     </li>
   <% end %>
 </ul>
+
+<% if current_user.admin? %>
+  <h4><%= link_to 'Skapa nytt dokument', new_developers_doc_path %></h4>
+<% end %>

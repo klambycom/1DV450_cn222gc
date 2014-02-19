@@ -7,10 +7,12 @@
       <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
     <% end %>
     <%= @doc.title %>
-    <small>
-      <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
-      <%= render 'delete_form', doc: @doc %>
-    </small>
+    <% if current_user.admin? %>
+      <small>
+        <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
+        <%= render 'delete_form', doc: @doc %>
+      </small>
+    <% end %>
   </h1>
 </div>
 

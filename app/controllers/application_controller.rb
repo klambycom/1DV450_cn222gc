@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def require_admin
+      unless current_user.admin?
+        store_location
+        redirect_to login_url(subdomain: false)
+      end
+    end
+
     def store_location
       session[:return_to] = request.url if request.get?
     end

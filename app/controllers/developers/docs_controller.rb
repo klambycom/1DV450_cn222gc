@@ -1,5 +1,6 @@
 class Developers::DocsController < Developers::BaseController
   before_filter :find_doc, except: [:index, :new, :create]
+  before_filter :require_admin, except: [:index, :show]
 
   def index
     @docs_api = Doc.api
