@@ -1,9 +1,9 @@
-<%= form_for(register, html: { class: "form-horizontal" }, builder: ErrorFormBuilder) do |f| %>
+<%= form_for(register, html: { class: "form-horizontal" }) do |f| %>
   <div class="form-group">
     <%= f.label :firstname, "Förnamn" %>
     <div class="form-field">
       <%= f.text_field :firstname %>
-      <%= f.error_for :firstname %>
+      <%= errors_for register, :firstname %>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <%= f.label :lastname, "Efternamn" %>
     <div class="form-field">
       <%= f.text_field :lastname %>
-      <%= f.error_for :lastname %>
+      <%= errors_for register, :lastname %>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
     <%= f.label :email, "E-postadress" %>
     <div class="form-field">
       <%= f.text_field :email %>
-      <%= f.error_for :email %>
+      <%= errors_for register, :email %>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
     <%= f.label :password, "Lösenord" %>
     <div class="form-field">
       <%= f.password_field :password %>
-      <%= f.error_for :password %>
+      <%= errors_for register, :password %>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
     <%= f.label :password_confirmation, "Lösenordet igen" %>
     <div class="form-field">
       <%= f.password_field :password_confirmation %>
-      <%= f.error_for :password_confirmation  %>
+      <%= errors_for register, :password_confirmation  %>
     </div>
   </div>
 
