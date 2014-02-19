@@ -1,5 +1,8 @@
 Toerh::Application.routes.draw do
-  use_doorkeeper
+  use_doorkeeper do
+    skip_controllers :applications
+  end
+
   resources :home
 
   get 'login'  => 'sessions#new',  as: :login
