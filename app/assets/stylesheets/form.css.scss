@@ -27,4 +27,8 @@
       }
     }
   }
+
+  .error {
+    @extend .text-danger;
+  }
 }

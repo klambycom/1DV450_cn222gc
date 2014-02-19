@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1>
+    Kontrollpanelen
+    <small>
+      <%= link_to "Skapa ny applikation",
+                  new_developers_dashboard_path %>
+    </small>
+  </h1>
+</div>
+
+<% if current_user.applications.present? %>
+  <div class="list-group">
+    <% current_user.applications.each do |app| %>
+      <a href="<%= developers_dashboard_path app %>" class="list-group-item">
+        <h2 class="list-group-item-heading"><%= app.name %></h2>
+        <p class="list-group-item-text">
+          Applikationen skapades <%= app.created_at %> och uppdaterades senast <%= app.updated_at %>
+        </p>
+      </a>
+    <% end %>
+  </div>
+<% else %>
+  <p>Du har inte skapat några applikationer än.</p>
+<% end %>

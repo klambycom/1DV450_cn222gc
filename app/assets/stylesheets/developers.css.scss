@@ -41,3 +41,14 @@
     }
   }
 }
+
+.page-header {
+  h1 {
+    small {
+      a {
+        @extend .pull-right;
+        @extend .btn;
+      }
+    }
+  }
+}
