@@ -1,0 +1,11 @@
+.delete-link {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: #0069d6;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
