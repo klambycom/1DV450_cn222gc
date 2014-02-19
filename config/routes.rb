@@ -2,8 +2,9 @@ Toerh::Application.routes.draw do
   use_doorkeeper
   resources :home
 
-  post 'login'  => 'sessions#login',  as: :login
-  get  'logout' => 'sessions#logout', as: :logout
+  get 'login'  => 'sessions#new',  as: :login
+  get 'logout' => 'sessions#destroy', as: :logout
+  resources :sessions
 
   resources :users
 
