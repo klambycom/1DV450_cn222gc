@@ -1,11 +1,6 @@
-object false
+object @user
+attributes :uuid, :firstname, :lastname, :email, :created_at, :updated_at
 
-node do
-  child @users => :items do
-    extends "api/users/show"
-  end
-
-  node :links do
-    attributes self: request.original_url
-  end
+node :links do |user|
+  attributes self: api_user_url(user.uuid)
 end

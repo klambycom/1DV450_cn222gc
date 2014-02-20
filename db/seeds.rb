@@ -810,9 +810,21 @@ För att se inloggad användare måste du autentiseria med OAuth, `Authorization
 
 ### Exempelsvar
 ```
+{
+    "uuid": "fe1f7857-1612-49c6-8131-f4a93c9fdd62",
+    "firstname": "Christian",
+    "lastname": "Nilsson",
+    "email": "christian@klamby.com",
+    "created_at": "2014-02-20T13:43:36.825Z",
+    "updated_at": "2014-02-20T13:44:48.659Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/users/fe1f7857-1612-49c6-8131-f4a93c9fdd62"
+    }
+}
 ```
 )
 Doc.create title: 'Users/:id', method: :get, content: %q(
+För att se en användare måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
 
 ### Format
 * json
@@ -820,5 +832,15 @@ Doc.create title: 'Users/:id', method: :get, content: %q(
 
 ### Exempelsvar
 ```
+{
+    "uuid": "fe1f7857-1612-49c6-8131-f4a93c9fdd62",
+    "firstname": "Christian",
+    "lastname": "Nilsson",
+    "created_at": "2014-02-20T13:43:36.825Z",
+    "updated_at": "2014-02-20T13:44:48.659Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/users/fe1f7857-1612-49c6-8131-f4a93c9fdd62"
+    }
+}
 ```
 )

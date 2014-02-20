@@ -9,8 +9,6 @@ Toerh::Application.routes.draw do
   get 'logout' => 'sessions#destroy', as: :logout
   resources :sessions
 
-  resources :users
-
   namespace :developers, path: "", constraints: { subdomain: 'developers' } do
     resources :dashboard
     resources :docs
@@ -27,6 +25,8 @@ Toerh::Application.routes.draw do
     #namespace :v2 do
     #end
   end
+
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
