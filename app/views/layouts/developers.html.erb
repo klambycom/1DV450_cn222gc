@@ -18,7 +18,7 @@
               <%= link_to "Första sidan", developers_root_path %>
             </li>
             <li class="<%= highlight?(:docs) %>">
-              <%= link_to "Documentation", developers_docs_path %>
+              <%= link_to "Documentation", developers_doc_path('kom-igang') %>
             </li>
             <% if logged_in? %>
               <li class="<%= highlight?(:dashboard) %>">
