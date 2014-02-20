@@ -13,18 +13,30 @@ class Api::ResourceTypesController < Api::BaseController
   end
 
   def create
-    @resourceType = ResourceType.create! resource_type_params
-    render 'api/resource_types/show'
+    if current_resource_owner_user.admin?
+      @resourceType = ResourceType.create! resource_type_params
+      render 'api/resource_types/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   def update
-    @resourceType.update_attributes! resource_type_params
-    render 'api/resource_types/show'
+    if current_resource_owner_user.admin?
+      @resourceType.update_attributes! resource_type_params
+      render 'api/resource_types/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   def destroy
-    @resourceType.destroy!
-    render 'api/resource_types/show'
+    if current_resource_owner_user.admin?
+      @resourceType.destroy!
+      render 'api/resource_types/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   private

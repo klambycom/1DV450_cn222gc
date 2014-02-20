@@ -13,18 +13,30 @@ class Api::LicensesController < Api::BaseController
   end
 
   def create
-    @license = License.create! license_params
-    render 'api/licenses/show'
+    if current_resource_owner_user.admin?
+      @license = License.create! license_params
+      render 'api/licenses/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   def update
-    @license.update_attributes! license_params
-    render 'api/licenses/show'
+    if current_resource_owner_user.admin?
+      @license.update_attributes! license_params
+      render 'api/licenses/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   def destroy
-    @license.destroy!
-    render 'api/licenses/show'
+    if current_resource_owner_user.admin?
+      @license.destroy!
+      render 'api/licenses/show'
+    else
+      render 'api/errors/403', status: 403
+    end
   end
 
   private

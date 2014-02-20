@@ -100,44 +100,6 @@ Doc.create title: 'Felkoder', method: :no_method, content: %q(
 ----
 Allt har gått bra, se det är ju ingen felkod.
 
-401
-----
-För att använda get på alla API:er förutom user, måste du använda API nyckel. För alla andra API:er måste du använda OAuth.
-
-#### Exempel:
-
-```
-{
-    "status": "401",
-    "message": "The application is not authorized",
-    "developerMessage": "The application have to be authorized for 'http://api.lvh.me:3000/tags'.",
-    "links": {
-        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
-        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
-        "self": "http://api.lvh.me:3000/tags"
-    }
-}
-```
-
-404
------
-Resursen du försökte hitta finns inte. Kontrollera att id är rätt.
-
-#### Exempel:
-
-```
-{
-    "status": "404",
-    "message": "Oops! It looks like that url does not exists.",
-    "developerMessage": "The resource 'http://api.lvh.me:3000/tags/52434' does not exist.",
-    "links": {
-        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
-        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
-        "self": "http://api.lvh.me:3000/tags/52434"
-    }
-}
-```
-
 400
 -----
 Datan som har postats är fel. Felen finns i arrayen errors.
@@ -164,6 +126,61 @@ Datan som har postats är fel. Felen finns i arrayen errors.
         "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
         "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
         "self": "http://api.lvh.me:3000/resources"
+    }
+}
+```
+
+401
+----
+För att använda get på alla API:er förutom user, måste du använda API nyckel. För alla andra API:er måste du använda OAuth.
+
+#### Exempel:
+
+```
+{
+    "status": "401",
+    "message": "The application is not authorized",
+    "developerMessage": "The application have to be authorized for 'http://api.lvh.me:3000/tags'.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/tags"
+    }
+}
+```
+
+403
+---
+Användaren måste vara admin för att skapa, uppdatera och ta bort licenser och resurs typer.
+
+```
+{
+    "status": "403",
+    "message": "Only admins can do that.",
+    "developerMessage": "Only admins are allowed to change licenses and resource types.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/resource_types"
+    }
+}
+```
+
+404
+-----
+Resursen du försökte hitta finns inte. Kontrollera att id är rätt.
+
+#### Exempel:
+
+```
+{
+    "status": "404",
+    "message": "Oops! It looks like that url does not exists.",
+    "developerMessage": "The resource 'http://api.lvh.me:3000/tags/52434' does not exist.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/tags/52434"
     }
 }
 ```
@@ -250,6 +267,8 @@ För att använda get måste du skicka med API nycket, `Authorization: Token tok
 Doc.create title: 'Licenses', method: :post, content: %q(
 För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
 
+Användaren måste vara admin.
+
 ### Format
 * json
 * xml
@@ -276,6 +295,8 @@ För att använda post måste du autentiseria med OAuth, `Authorization: Bearer=
 Doc.create title: 'Licenses/:id', method: :put, content: %q(
 För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
 
+Användaren måste vara admin.
+
 ### Format
 * json
 * xml
@@ -301,6 +322,8 @@ För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={
 )
 Doc.create title: 'Licenses/:id', method: :delete, content: %q(
 För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+Användaren måste vara admin.
 
 ### Format
 * json
@@ -372,6 +395,8 @@ För att använda get måste du skicka med API nycket, `Authorization: Token tok
 Doc.create title: 'ResourceTypes', method: :post, content: %q(
 För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
 
+Användaren måste vara admin.
+
 ### Format
 * json
 * xml
@@ -393,6 +418,8 @@ För att använda post måste du autentiseria med OAuth, `Authorization: Bearer=
 Doc.create title: 'ResourceTypes/:id', method: :put, content: %q(
 För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
 
+Användaren måste vara admin.
+
 ### Format
 * json
 * xml
@@ -413,6 +440,8 @@ För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={
 )
 Doc.create title: 'ResourceTypes/:id', method: :delete, content: %q(
 För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+Användaren måste vara admin.
 
 ### Format
 * json
