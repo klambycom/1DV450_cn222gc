@@ -45,11 +45,11 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rabl'
-gem 'oj'
+gem 'rabl', '~> 0.9.0'
+gem 'oj', '~> 2.5.0'
 
-gem 'doorkeeper'
+gem 'doorkeeper', '~> 1.0.0'
 
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.1.0'
 
 gem 'friendly_id', '~> 5.0.0'
