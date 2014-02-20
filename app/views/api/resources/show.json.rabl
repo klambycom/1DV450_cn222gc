@@ -1,18 +1,32 @@
 object @resource
-attributes :uuid, :name, :url, :description, :created_at, :updated_at
 
-child :resource_type do
-  attributes :uuid, :name
+attributes :uuid        if show_data_for? 'uuid'
+attributes :name        if show_data_for? 'name'
+attributes :url         if show_data_for? 'url'
+attributes :description if show_data_for? 'description'
+attributes :created_at  if show_data_for? 'created_at'
+attributes :updated_at  if show_data_for? 'updated_at'
+
+if show_data_for? 'resource_type'
+  child :resource_type do
+    attributes :uuid, :name
+  end
 end
 
-child :user do
-  attributes :uuid, :firstname
+if show_data_for? 'user'
+  child :user do
+    attributes :uuid, :firstname
+  end
 end
 
-child :license do
-  attributes :uuid, :name
+if show_data_for? 'license'
+  child :license do
+    attributes :uuid, :name
+  end
 end
 
-child :tags do
-  attributes :uuid, :tag
+if show_data_for? 'tags'
+  child :tags do
+    attributes :uuid, :tag
+  end
 end
