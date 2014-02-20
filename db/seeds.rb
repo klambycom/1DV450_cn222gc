@@ -61,7 +61,21 @@
 # Documentation #
 #################
 
-Doc.create title: 'Kom igång', method: :no_method, content: '...'
+Doc.create title: 'Kom igång', method: :no_method, content: %q(
+Postman
+-----------
+Jag rekommenderar att du använder [Postman](http://www.getpostman.com/) för att testa API:et. Börja med att importera den collection som jag har skapat, URL:en är `https://www.getpostman.com/collections/c197f47a5d3ea3f20189`.
+
+![Importera collection i Postman](http://lvh.me:3000/assets/postmanimport.png)
+
+För att kunna börja använda API:et måste du först göra en Client Authentication, det kan du göra genom att göra en Basic Authentication med applikations id och secret. Fyll sen i resten av uppgifterna.
+
+![OAuth](http://lvh.me:3000/assets/oauth.png)
+
+Nu kan du använda API:et. Jag föreslår att du spara din applikations uppgifter i ett environment.
+
+![Environments](http://lvh.me:3000/assets/environment.png)
+)
 Doc.create title: 'Felkoder', method: :no_method, content: %q(
 200
 ----
