@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220094953) do
-
-  create_table "apps", force: true do |t|
-    t.string   "name",         limit: 50,                 null: false
-    t.string   "url",                     default: "",    null: false
-    t.string   "description",             default: "",    null: false
-    t.boolean  "public",                  default: false
-    t.string   "access_token",                            null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140220133308) do
 
   create_table "docs", force: true do |t|
     t.string   "title",      limit: 100,              null: false
@@ -35,12 +25,15 @@ ActiveRecord::Schema.define(version: 20140220094953) do
   add_index "docs", ["slug"], name: "index_docs_on_slug"
 
   create_table "licenses", force: true do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.string   "url",         null: false
+    t.string   "name",                   null: false
+    t.text     "description",            null: false
+    t.string   "url",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid",        limit: 40
   end
+
+  add_index "licenses", ["uuid"], name: "index_licenses_on_uuid"
 
   create_table "oauth_access_grants", force: true do |t|
     t.integer  "resource_owner_id", null: false
@@ -88,18 +81,24 @@ ActiveRecord::Schema.define(version: 20140220094953) do
     t.string   "name",       limit: 50, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid",       limit: 40
   end
+
+  add_index "resource_types", ["uuid"], name: "index_resource_types_on_uuid"
 
   create_table "resources", force: true do |t|
     t.integer  "resource_type_id"
     t.integer  "license_id"
     t.integer  "user_id"
-    t.string   "name",                          null: false
-    t.string   "url",              default: "", null: false
-    t.string   "description",      default: "", null: false
+    t.string   "name",                                     null: false
+    t.string   "url",                         default: "", null: false
+    t.string   "description",                 default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid",             limit: 40
   end
+
+  add_index "resources", ["uuid"], name: "index_resources_on_uuid"
 
   create_table "resources_tags", id: false, force: true do |t|
     t.integer "resource_id"
@@ -112,7 +111,10 @@ ActiveRecord::Schema.define(version: 20140220094953) do
     t.string   "tag",        limit: 50, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid",       limit: 40
   end
+
+  add_index "tags", ["uuid"], name: "index_tags_on_uuid"
 
   create_table "users", force: true do |t|
     t.string   "email",           limit: 254,                 null: false
@@ -122,6 +124,9 @@ ActiveRecord::Schema.define(version: 20140220094953) do
     t.string   "firstname",                   default: "",    null: false
     t.string   "lastname",                    default: "",    null: false
     t.boolean  "admin",                       default: false
+    t.string   "uuid",            limit: 40
   end
+
+  add_index "users", ["uuid"], name: "index_users_on_uuid"
 
 end
