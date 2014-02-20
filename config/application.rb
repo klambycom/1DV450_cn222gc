@@ -33,5 +33,7 @@ module Toerh
     #  # Only Authorized Applications
     #  Doorkeeper::AuthorizedApplicationsController.layout "my_layout"
     #end
+
+    config.active_record.whitelist_attributes = false
   end
 end

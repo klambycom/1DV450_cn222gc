@@ -62,17 +62,36 @@
 #################
 
 Doc.create title: 'Kom igång', method: :no_method, content: %q(
+Access Token
+------------------
+För att få tag på din access token måste du skapa en ny applikation med callback url `urn:ietf:wg:oauth:2.0:oob`. Installera sedan oauth2, `gem install oauth2`. Starta irb med `irb -r oauth2`.
+
+Skriv sedan följande kod:
+
+```
+callback = "urn:ietf:wg:oauth:2.0:oob"
+app_id = "APPLIKATIONENS ID"
+secret = "APPLIKATIONENS SECRET"
+client = OAuth2::Client.new(app_id, secret, site: "http://lvh.me:3000/")
+client.auth_code.authorize_url(redirect_uri: callback)
+```
+
+Du får nu en adress som du kan skriva in i din webbläsare för att få tillbaka en "authorization code". Forstätt sen med:
+
+```
+access = client.auth_code.get_token('AUTHORIZATION CODE', redirect_uri: callback)
+access.token
+```
+
+Du får nu en "access token" som du kan använda i t.ex. Postman för att testa API:et.
+
 Postman
 -----------
 Jag rekommenderar att du använder [Postman](http://www.getpostman.com/) för att testa API:et. Börja med att importera den collection som jag har skapat, URL:en är `https://www.getpostman.com/collections/c197f47a5d3ea3f20189`.
 
 ![Importera collection i Postman](http://lvh.me:3000/assets/postmanimport.png)
 
-För att kunna börja använda API:et måste du först göra en Client Authentication, det kan du göra genom att göra en Basic Authentication med applikations id och secret. Fyll sen i resten av uppgifterna.
-
-![OAuth](http://lvh.me:3000/assets/oauth.png)
-
-Nu kan du använda API:et. Jag föreslår att du spara din applikations uppgifter i ett environment.
+För att kunna API:et behöver du "access\_token" och "application\_id", och jag rekomenderar därför att du sparar dem i ett environment.
 
 ![Environments](http://lvh.me:3000/assets/environment.png)
 )
@@ -532,7 +551,6 @@ För att använda post måste du autentiseria med OAuth, `Authorization: Bearer=
 * description, max 255 tecken.
 * resource_type_id
 * license_id
-* user_id
 
 ### Exempelsvar
 ```

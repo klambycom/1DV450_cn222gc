@@ -1,4 +1,4 @@
-class Api::BaseController  < ActionController::Base
+class Api::BaseController  < ApplicationController
   protect_from_forgery with: :null_session
 
   respond_to :json, :xml
@@ -49,6 +49,12 @@ class Api::BaseController  < ActionController::Base
     def restrict_access_with_token
       authenticate_or_request_with_http_token do |token, options|
         Doorkeeper::Application.exists? uid: token
+      end
+    end
+
+    def current_resource_owner_user
+      if doorkeeper_token
+        @current_resource_owner_user ||= User.find(doorkeeper_token.resource_owner_id)
       end
     end
 end
