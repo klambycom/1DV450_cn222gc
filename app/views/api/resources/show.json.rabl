@@ -1,18 +1,18 @@
 object @resource
-attributes :id, :name, :url, :description, :created_at, :updated_at
+attributes :uuid, :name, :url, :description, :created_at, :updated_at
 
 child :resource_type do
-  attributes :id, :name
+  attributes :uuid, :name
 end
 
 child :user do
-  attributes :id, :firstname
+  attributes :uuid, :firstname
 end
 
 child :license do
-  attributes :id, :name
+  attributes :uuid, :name
 end
 
 child :tags do
-  attributes :id, :tag
+  attributes :uuid, :tag
 end

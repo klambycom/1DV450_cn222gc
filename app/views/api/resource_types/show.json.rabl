@@ -1,2 +1,2 @@
 object @resourceType
-attributes :id, :name
+attributes :uuid, :name

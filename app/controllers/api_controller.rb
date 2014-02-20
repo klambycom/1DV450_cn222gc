@@ -6,7 +6,7 @@ class ApiController  < ActionController::Base
     def from_id name
       begin
         instance_variable_set "@#{name.camelize(:lower)}",
-                              name.camelize.constantize.find(params[:id])
+                              name.camelize.constantize.find_by_uuid(params[:id])
       rescue ActiveRecord::RecordNotFound
         render nothing: true, status: 404
       end

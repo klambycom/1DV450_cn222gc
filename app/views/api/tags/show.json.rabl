@@ -1,2 +1,2 @@
 object @tag
-attributes :id, :tag
+attributes :uuid, :tag
