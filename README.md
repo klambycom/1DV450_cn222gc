@@ -1,8 +1,13 @@
 The Open Education Resource Handler
 ===================================
 
-Use lvh.me or change :domain in config/initializers/session_store.rb.
+Kom igång med utveckling
+------------------------
 
-Populate database with example data: rake db:seed
+Skapa databas `rake db:migrate`.
 
-API controllers use ApiController instead of ApplicationController.
+Lägg till data i databasen `rake db:seed`.
+
+Starta applikationen `rails s`.
+
+Besök `http://developers.lvh.me:3000/docs/kom-igang`.
