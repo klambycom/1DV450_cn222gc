@@ -3,8 +3,6 @@ class Developers::DocsController < Developers::BaseController
   before_filter :require_admin, except: [:index, :show]
 
   def index
-    @docs_api = Doc.api
-    @docs_other = Doc.other
     @changelog = Doc.changelog
   end
 
@@ -41,6 +39,7 @@ class Developers::DocsController < Developers::BaseController
   end
 
   private
+    helper_method :highlight_doc?
 
     def find_doc
       @doc = Doc.find params[:id]
@@ -48,5 +47,9 @@ class Developers::DocsController < Developers::BaseController
 
     def doc_params
       params.require(:doc).permit(:title, :content, :method)
+    end
+
+    def highlight_doc? doc
+      "active" if @doc && @doc.id == doc.id
     end
 end

@@ -1,23 +1,27 @@
 <% provide :title, @doc.title %>
 <% highlight :docs %>
 
-<div class="page-header">
-  <h1>
-    <% if @doc.api? %>
-      <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
-    <% end %>
-    <%= @doc.title %>
-    <% if admin? %>
-      <small>
-        <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
-        <%= render 'delete_form', doc: @doc %>
-      </small>
-    <% end %>
-  </h1>
-</div>
+<%= render 'menu' %>
 
-<small>Uppdaterades senast den <%= full_date @doc.updated_at %>.</small>
+<div id="docs-content">
+  <div class="page-header">
+    <h1>
+      <% if @doc.api? %>
+        <span class="method method-<%= @doc.method %>"><%= @doc.method %></span>
+      <% end %>
+      <%= @doc.title %>
+      <% if admin? %>
+        <small>
+          <%= link_to 'Ändra', edit_developers_doc_path(@doc) %>
+          <%= render 'delete_form', doc: @doc %>
+        </small>
+      <% end %>
+    </h1>
+  </div>
 
-<div class="content">
-  <%= markdown @doc.content %>
+  <small>Uppdaterades senast den <%= full_date @doc.updated_at %>.</small>
+
+  <div class="content">
+    <%= markdown @doc.content %>
+  </div>
 </div>

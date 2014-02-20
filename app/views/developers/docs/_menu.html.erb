@@ -1,0 +1,27 @@
+<div id="docs-nav">
+  <h2>Dokumentation</h2>
+  <ul>
+    <% Doc.other.each do |doc| %>
+      <li class="<%= highlight_doc? doc %>">
+        <%= link_to doc.title, developers_doc_path(doc) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>API</h3>
+  <ul>
+    <% Doc.api.each do |doc| %>
+      <li class="<%= highlight_doc? doc %>">
+        <a href="<%= developers_doc_path(doc) %>">
+          <span class="method method-<%= doc.method %>"><%= doc.method %></span>
+          <%= doc.title %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if admin? %>
+    <h4><%= link_to 'Skapa nytt dokument', new_developers_doc_path %></h4>
+  <% end %>
+</div>
+

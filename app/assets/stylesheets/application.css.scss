@@ -1,7 +1,8 @@
 @import "bootstrap";
 @import "form";
-@import "developers";
 @import "delete-link";
+@import "developers";
+@import "developers/docs";
 
 .alert-notice {
   @extend .bg-info;
