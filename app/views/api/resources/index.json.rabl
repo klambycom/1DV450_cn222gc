@@ -1,3 +1,11 @@
-collection @resources => :resources
+object false
 
-extends "api/resources/show"
+node do
+  child @resources => :data do
+    extends "api/resources/show"
+  end
+
+  node :links do
+    attributes self: request.original_url
+  end
+end

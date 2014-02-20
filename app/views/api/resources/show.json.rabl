@@ -30,3 +30,9 @@ if show_data_for? 'tags'
     attributes :uuid, :tag
   end
 end
+
+node :links do |res|
+  attributes author: api_user_url(res.user.uuid),
+             author_image: gravatar_url_for(res.user),
+             self: api_resource_url(res.uuid)
+end
