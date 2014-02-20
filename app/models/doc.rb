@@ -6,6 +6,9 @@
 # updated_at      datetime
 
 class Doc < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title_and_method, use: [:slugged, :finders]
+
   METHODS = [:no_method, :get, :put, :post, :delete]
   METHODS_SWE = ['Ingen', 'GET', 'PUT', 'POST', 'DELETE']
 
@@ -30,5 +33,13 @@ class Doc < ActiveRecord::Base
 
   def api?
     method != :no_method
+  end
+
+  def title_and_method
+    if read_attribute(:method).to_sym == :no_method
+      "#{title}"
+    else
+      "#{method} #{title}"
+    end
   end
 end
