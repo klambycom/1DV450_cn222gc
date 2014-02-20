@@ -8,85 +8,785 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-member = User.create(firstname: "John",
-                     lastname: "Doe",
-                     email: "john@doe.com",
-                     password: "hemligt",
-                     password_confirmation: "hemligt")
-
-rockTag = Tag.create(tag: "Rock")
-psychedelicTag = Tag.create(tag: "Psykedelisk")
-Tag.create(tag: "77-punk")
-Tag.create(tag: "Hardcore")
-Tag.create(tag: "Trallpunk")
-
-videoResourceType = ResourceType.create(name: "Video")
-
-mitLicense = License.create(
-  name: "MIT",
-  url: "http://en.wikipedia.org/wiki/MIT_License", 
-  description:
-%q(Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.))
-
-resource = Resource.create(name: "White Rabbit",
-                           url: "http://www.youtube.com/watch?v=WANNqr-vcx0",
-                           description: "Jefferson Airplane - White Rabbit")
-
-resource.resource_type = videoResourceType
-resource.license = mitLicense
-resource.user = member
-
-resource.tags << rockTag
-resource.tags << psychedelicTag
-
-resource.save
+#member = User.create(firstname: "John",
+#                     lastname: "Doe",
+#                     email: "john@doe.com",
+#                     password: "hemligt",
+#                     password_confirmation: "hemligt")
+#
+#rockTag = Tag.create(tag: "Rock")
+#psychedelicTag = Tag.create(tag: "Psykedelisk")
+#Tag.create(tag: "77-punk")
+#Tag.create(tag: "Hardcore")
+#Tag.create(tag: "Trallpunk")
+#
+#videoResourceType = ResourceType.create(name: "Video")
+#
+#mitLicense = License.create(
+#  name: "MIT",
+#  url: "http://en.wikipedia.org/wiki/MIT_License", 
+#  description:
+#%q(Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in
+#all copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#THE SOFTWARE.))
+#
+#resource = Resource.create(name: "White Rabbit",
+#                           url: "http://www.youtube.com/watch?v=WANNqr-vcx0",
+#                           description: "Jefferson Airplane - White Rabbit")
+#
+#resource.resource_type = videoResourceType
+#resource.license = mitLicense
+#resource.user = member
+#
+#resource.tags << rockTag
+#resource.tags << psychedelicTag
+#
+#resource.save
 
 #################
 # Documentation #
 #################
 
 Doc.create title: 'Kom igång', method: :no_method, content: '...'
-Doc.create title: 'Felkoder', method: :no_method, content: '...'
+Doc.create title: 'Felkoder', method: :no_method, content: %q(
+200
+----
+Allt har gått bra, se det är ju ingen felkod.
 
-Doc.create title: 'Licenses', method: :get, content: '...'
-Doc.create title: 'Licenses/:id', method: :get, content: '...'
-Doc.create title: 'Licenses', method: :post, content: '...'
-Doc.create title: 'Licenses/:id', method: :put, content: '...'
-Doc.create title: 'Licenses/:id', method: :delete, content: '...'
+401
+----
+För att använda get på alla API:er förutom user, måste du använda API nyckel. För alla andra API:er måste du använda OAuth.
 
-Doc.create title: 'ResourceTypes', method: :get, content: '...'
-Doc.create title: 'ResourceTypes/:id', method: :get, content: '...'
-Doc.create title: 'ResourceTypes', method: :post, content: '...'
-Doc.create title: 'ResourceTypes/:id', method: :put, content: '...'
-Doc.create title: 'ResourceTypes/:id', method: :delete, content: '...'
+#### Exempel:
 
-Doc.create title: 'Resources', method: :get, content: '...'
-Doc.create title: 'Resources/:id', method: :get, content: '...'
-Doc.create title: 'Resources', method: :post, content: '...'
-Doc.create title: 'Resources/:id', method: :put, content: '...'
-Doc.create title: 'Resources/:id', method: :delete, content: '...'
+```
+{
+    "status": "401",
+    "message": "The application is not authorized",
+    "developerMessage": "The application have to be authorized for 'http://api.lvh.me:3000/tags'.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/tags"
+    }
+}
+```
 
-Doc.create title: 'Tags', method: :get, content: '...'
-Doc.create title: 'Tags/:id', method: :get, content: '...'
-Doc.create title: 'Tags', method: :post, content: '...'
-Doc.create title: 'Tags/:id', method: :put, content: '...'
-Doc.create title: 'Tags/:id', method: :delete, content: '...'
+404
+-----
+Resursen du försökte hitta finns inte. Kontrollera att id är rätt.
 
-Doc.create title: 'Users', method: :get, content: '...'
-Doc.create title: 'Users/:id', method: :get, content: '...'
+#### Exempel:
+
+```
+{
+    "status": "404",
+    "message": "Oops! It looks like that url does not exists.",
+    "developerMessage": "The resource 'http://api.lvh.me:3000/tags/52434' does not exist.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/tags/52434"
+    }
+}
+```
+
+400
+-----
+Datan som har postats är fel. Felen finns i arrayen errors.
+
+#### Exempel:
+
+```
+{
+    "status": "400",
+    "message": "Incorrect data.",
+    "developerMessage": "Incorrect data.",
+    "errors": {
+        "name": [
+            "can't be blank"
+        ],
+        "url": [
+            "can't be blank"
+        ],
+        "description": [
+            "can't be blank"
+        ]
+    },
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/resources"
+    }
+}
+```
+
+500
+----
+Något har gått fel som antagligen inte är ditt fel.
+
+#### Exempel:
+
+```
+{
+    "status": "500",
+    "message": "A temporary error occurred. Try again later.",
+    "developerMessage": "A error occurred on the server.",
+    "links": {
+        "moreInfo": "http://developers.lvh.me:3000/docs/felkoder",
+        "documentation": "http://developers.lvh.me:3000/docs/kom-igang",
+        "self": "http://api.lvh.me:3000/resources"
+    }
+}
+```
+)
+Doc.create title: 'Changelog', method: :no_method, content: %q(
+20 feb 2014
+---------------
+Första versionen av API:et är färdigt.
+)
+
+Doc.create title: 'Licenses', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Url parametrar
+* offset, vilken post som resultatet ska börja på.
+* limit, antalet poster.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "links": {
+        "self": "http://api.lvh.me:3000/licenses"
+    },
+    "items": [
+        {
+            "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+            "name": "MIT",
+            "description": "Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.",
+            "url": "http://en.wikipedia.org/wiki/MIT_License",
+            "updated_at": "2014-02-20T13:42:17.651Z",
+            "links": {
+                "self": "http://api.lvh.me:3000/licenses/1d9d82cc-8275-4317-9bde-9436839a0d35"
+            }
+        },
+        ...
+    ]
+}
+```
+)
+Doc.create title: 'Licenses/:id', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "fadb4c72-b82c-4e92-8a11-9b5b2e04d440",
+    "name": "mit",
+    "description": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+    "url": "http://opensource.org/licenses/MIT",
+    "updated_at": "2014-02-20T19:05:56.682Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/licenses/fadb4c72-b82c-4e92-8a11-9b5b2e04d440"
+    }
+}
+```
+)
+Doc.create title: 'Licenses', method: :post, content: %q(
+För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 255 tecken.
+* description
+* url, max 255 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "fadb4c72-b82c-4e92-8a11-9b5b2e04d440",
+    "name": "MIT",
+    "description": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+    "url": "http://opensource.org/licenses/MIT",
+    "updated_at": "2014-02-20T19:05:56.682Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/licenses/fadb4c72-b82c-4e92-8a11-9b5b2e04d440"
+    }
+}
+```
+)
+Doc.create title: 'Licenses/:id', method: :put, content: %q(
+För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 255 tecken.
+* description
+* url, max 255 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "fadb4c72-b82c-4e92-8a11-9b5b2e04d440",
+    "name": "mit",
+    "description": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+    "url": "http://opensource.org/licenses/MIT",
+    "updated_at": "2014-02-20T19:05:56.682Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/licenses/fadb4c72-b82c-4e92-8a11-9b5b2e04d440"
+    }
+}
+```
+)
+Doc.create title: 'Licenses/:id', method: :delete, content: %q(
+För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "fadb4c72-b82c-4e92-8a11-9b5b2e04d440",
+    "name": "mit",
+    "description": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+    "url": "http://opensource.org/licenses/MIT",
+    "updated_at": "2014-02-20T19:05:56.682Z",
+    "links": {
+        "self": "http://api.lvh.me:3000/licenses/fadb4c72-b82c-4e92-8a11-9b5b2e04d440"
+    }
+}
+```
+)
+
+Doc.create title: 'ResourceTypes', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Url parametrar
+* offset, vilken post som resultatet ska börja på.
+* limit, antalet poster.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "links": {
+        "self": "http://api.lvh.me:3000/resource_types"
+    },
+    "items": [
+        {
+            "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+            "name": "Video",
+            "links": {
+                "self": "http://api.lvh.me:3000/resource_types/37412f35-1284-49cf-a3d7-3652a1fd9575"
+            }
+        },
+        ...
+    ]
+}
+```
+)
+Doc.create title: 'ResourceTypes/:id', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+    "name": "Video",
+    "links": {
+        "self": "http://api.lvh.me:3000/resource_types/37412f35-1284-49cf-a3d7-3652a1fd9575"
+    }
+}
+```
+)
+Doc.create title: 'ResourceTypes', method: :post, content: %q(
+För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 50 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+    "name": "Video",
+    "links": {
+        "self": "http://api.lvh.me:3000/resource_types/37412f35-1284-49cf-a3d7-3652a1fd9575"
+    }
+}
+```
+)
+Doc.create title: 'ResourceTypes/:id', method: :put, content: %q(
+För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 50 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+    "name": "Video",
+    "links": {
+        "self": "http://api.lvh.me:3000/resource_types/37412f35-1284-49cf-a3d7-3652a1fd9575"
+    }
+}
+```
+)
+Doc.create title: 'ResourceTypes/:id', method: :delete, content: %q(
+För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+    "name": "Video",
+    "links": {
+        "self": "http://api.lvh.me:3000/resource_types/37412f35-1284-49cf-a3d7-3652a1fd9575"
+    }
+}
+```
+)
+
+Doc.create title: 'Resources', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Url parametrar
+* offset, vilken post som resultatet ska börja på.
+* limit, antalet poster.
+* only, vilka fält som ska skickas med i svaret.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "links": {
+        "self": "http://api.lvh.me:3000/resources"
+    },
+    "items": [
+        {
+            "uuid": "58b036f4-7b98-4eda-80f9-45f26a5365e6",
+            "name": "White Rabbit",
+            "url": "http://www.youtube.com/watch?v=WANNqr-vcx0",
+            "description": "Jefferson Airplane - White Rabbit",
+            "created_at": "2014-02-20T13:42:17.669Z",
+            "updated_at": "2014-02-20T13:42:17.694Z",
+            "links": {
+                "author": "http://api.lvh.me:3000/users/cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+                "author_image": "https://secure.gravatar.com/avatar/6a6c19fea4a3676970167ce51f39e6ee",
+                "self": "http://api.lvh.me:3000/resources/58b036f4-7b98-4eda-80f9-45f26a5365e6"
+            },
+            "resource_type": {
+                "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+                "name": "Video"
+            },
+            "user": {
+                "uuid": "cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+                "firstname": "John"
+            },
+            "license": {
+                "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+                "name": "MIT"
+            },
+            "tags": [
+                {
+                    "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+                    "tag": "Rock"
+                },
+                {
+                    "uuid": "decfa2af-2cc9-4d33-bf72-1af2425aa23f",
+                    "tag": "Psykedelisk"
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+)
+Doc.create title: 'Resources/:id', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Url parametrar
+* only, vilka fält som ska skickas med i svaret.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "58b036f4-7b98-4eda-80f9-45f26a5365e6",
+    "name": "White Rabbit",
+    "url": "http://www.youtube.com/watch?v=WANNqr-vcx0",
+    "description": "Jefferson Airplane - White Rabbit",
+    "created_at": "2014-02-20T13:42:17.669Z",
+    "updated_at": "2014-02-20T13:42:17.694Z",
+    "links": {
+        "author": "http://api.lvh.me:3000/users/cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "author_image": "https://secure.gravatar.com/avatar/6a6c19fea4a3676970167ce51f39e6ee",
+        "self": "http://api.lvh.me:3000/resources/58b036f4-7b98-4eda-80f9-45f26a5365e6"
+    },
+    "resource_type": {
+        "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+        "name": "Video"
+    },
+    "user": {
+        "uuid": "cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "firstname": "John"
+    },
+    "license": {
+        "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+        "name": "MIT"
+    },
+    "tags": [
+        {
+            "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+            "tag": "Rock"
+        },
+        {
+            "uuid": "decfa2af-2cc9-4d33-bf72-1af2425aa23f",
+            "tag": "Psykedelisk"
+        }
+    ]
+}
+```
+)
+Doc.create title: 'Resources', method: :post, content: %q(
+För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 255 tecken.
+* url, max 255 tecken.
+* description, max 255 tecken.
+* resource_type_id
+* license_id
+* user_id
+
+### Exempelsvar
+```
+{
+    "uuid": "58b036f4-7b98-4eda-80f9-45f26a5365e6",
+    "name": "White Rabbit",
+    "url": "http://www.youtube.com/watch?v=WANNqr-vcx0",
+    "description": "Jefferson Airplane - White Rabbit",
+    "created_at": "2014-02-20T13:42:17.669Z",
+    "updated_at": "2014-02-20T13:42:17.694Z",
+    "links": {
+        "author": "http://api.lvh.me:3000/users/cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "author_image": "https://secure.gravatar.com/avatar/6a6c19fea4a3676970167ce51f39e6ee",
+        "self": "http://api.lvh.me:3000/resources/58b036f4-7b98-4eda-80f9-45f26a5365e6"
+    },
+    "resource_type": {
+        "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+        "name": "Video"
+    },
+    "user": {
+        "uuid": "cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "firstname": "John"
+    },
+    "license": {
+        "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+        "name": "MIT"
+    },
+    "tags": [
+        {
+            "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+            "tag": "Rock"
+        },
+        {
+            "uuid": "decfa2af-2cc9-4d33-bf72-1af2425aa23f",
+            "tag": "Psykedelisk"
+        }
+    ]
+}
+```
+)
+Doc.create title: 'Resources/:id', method: :put, content: %q(
+För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* name, max 255 tecken.
+* url, max 255 tecken.
+* description, max 255 tecken.
+* resource_type_id
+* license_id
+* user_id
+
+### Exempelsvar
+```
+{
+    "uuid": "58b036f4-7b98-4eda-80f9-45f26a5365e6",
+    "name": "White Rabbit",
+    "url": "http://www.youtube.com/watch?v=WANNqr-vcx0",
+    "description": "Jefferson Airplane - White Rabbit",
+    "created_at": "2014-02-20T13:42:17.669Z",
+    "updated_at": "2014-02-20T13:42:17.694Z",
+    "links": {
+        "author": "http://api.lvh.me:3000/users/cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "author_image": "https://secure.gravatar.com/avatar/6a6c19fea4a3676970167ce51f39e6ee",
+        "self": "http://api.lvh.me:3000/resources/58b036f4-7b98-4eda-80f9-45f26a5365e6"
+    },
+    "resource_type": {
+        "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+        "name": "Video"
+    },
+    "user": {
+        "uuid": "cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "firstname": "John"
+    },
+    "license": {
+        "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+        "name": "MIT"
+    },
+    "tags": [
+        {
+            "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+            "tag": "Rock"
+        },
+        {
+            "uuid": "decfa2af-2cc9-4d33-bf72-1af2425aa23f",
+            "tag": "Psykedelisk"
+        }
+    ]
+}
+```
+)
+Doc.create title: 'Resources/:id', method: :delete, content: %q(
+För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "58b036f4-7b98-4eda-80f9-45f26a5365e6",
+    "name": "White Rabbit",
+    "url": "http://www.youtube.com/watch?v=WANNqr-vcx0",
+    "description": "Jefferson Airplane - White Rabbit",
+    "created_at": "2014-02-20T13:42:17.669Z",
+    "updated_at": "2014-02-20T13:42:17.694Z",
+    "links": {
+        "author": "http://api.lvh.me:3000/users/cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "author_image": "https://secure.gravatar.com/avatar/6a6c19fea4a3676970167ce51f39e6ee",
+        "self": "http://api.lvh.me:3000/resources/58b036f4-7b98-4eda-80f9-45f26a5365e6"
+    },
+    "resource_type": {
+        "uuid": "37412f35-1284-49cf-a3d7-3652a1fd9575",
+        "name": "Video"
+    },
+    "user": {
+        "uuid": "cb30fcce-505b-49fa-8a36-14d7cd251f0e",
+        "firstname": "John"
+    },
+    "license": {
+        "uuid": "1d9d82cc-8275-4317-9bde-9436839a0d35",
+        "name": "MIT"
+    },
+    "tags": [
+        {
+            "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+            "tag": "Rock"
+        },
+        {
+            "uuid": "decfa2af-2cc9-4d33-bf72-1af2425aa23f",
+            "tag": "Psykedelisk"
+        }
+    ]
+}
+```
+)
+
+Doc.create title: 'Tags', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Url parametrar
+* offset, vilken post som resultatet ska börja på.
+* limit, antalet poster.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "links": {
+        "self": "http://api.lvh.me:3000/tags"
+    },
+    "items": [
+        {
+            "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+            "tag": "Rock",
+            "links": {
+                "self": "http://api.lvh.me:3000/tags/b8918231-c9c4-458f-af86-0b62df368c4f"
+            }
+        },
+        ...
+    ]
+}
+```
+)
+Doc.create title: 'Tags/:id', method: :get, content: %q(
+För att använda get måste du skicka med API nycket, `Authorization: Token token={{application_id}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+    "tag": "Rock",
+    "links": {
+        "self": "http://api.lvh.me:3000/tags/b8918231-c9c4-458f-af86-0b62df368c4f"
+    }
+}
+```
+)
+Doc.create title: 'Tags', method: :post, content: %q(
+För att använda post måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* tag, max 50 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+    "tag": "Rock",
+    "links": {
+        "self": "http://api.lvh.me:3000/tags/b8918231-c9c4-458f-af86-0b62df368c4f"
+    }
+}
+```
+)
+Doc.create title: 'Tags/:id', method: :put, content: %q(
+För att använda put måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Data
+* tag, max 50 tecken.
+
+### Exempelsvar
+```
+{
+    "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+    "tag": "Rock",
+    "links": {
+        "self": "http://api.lvh.me:3000/tags/b8918231-c9c4-458f-af86-0b62df368c4f"
+    }
+}
+```
+)
+Doc.create title: 'Tags/:id', method: :delete, content: %q(
+För att använda delete måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+{
+    "uuid": "b8918231-c9c4-458f-af86-0b62df368c4f",
+    "tag": "Rock",
+    "links": {
+        "self": "http://api.lvh.me:3000/tags/b8918231-c9c4-458f-af86-0b62df368c4f"
+    }
+}
+```
+)
+
+Doc.create title: 'Users', method: :get, content: %q(
+För att se inloggad användare måste du autentiseria med OAuth, `Authorization: Bearer={{access_token}}`.
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+```
+)
+Doc.create title: 'Users/:id', method: :get, content: %q(
+
+### Format
+* json
+* xml
+
+### Exempelsvar
+```
+```
+)
