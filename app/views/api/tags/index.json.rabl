@@ -1,7 +1,7 @@
 object false
 
 node do
-  child @tags => :data do
+  child @tags => :items do
     extends "api/tags/show"
   end
 

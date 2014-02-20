@@ -1,7 +1,7 @@
 object false
 
 node do
-  child @resources => :data do
+  child @resources => :items do
     extends "api/resources/show"
   end
 

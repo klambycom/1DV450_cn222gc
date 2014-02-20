@@ -1,7 +1,7 @@
 object false
 
 node do
-  child @users => :data do
+  child @users => :items do
     extends "api/users/show"
   end
 

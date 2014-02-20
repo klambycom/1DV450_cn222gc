@@ -1,7 +1,7 @@
 object false
 
 node do
-  child @licenses => :data do
+  child @licenses => :items do
     extends "api/licenses/show"
   end
 
