@@ -6,7 +6,7 @@ class Api::TagsController < Api::BaseController
   around_filter :render_error, except: [:index]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.offset(params[:offset] || 0).limit(params[:limit] || 10)
   end
 
   def show

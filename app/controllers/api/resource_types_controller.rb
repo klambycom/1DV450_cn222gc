@@ -6,7 +6,7 @@ class Api::ResourceTypesController < Api::BaseController
   around_filter :render_error, except: [:index]
 
   def index
-    @resourceTypes = ResourceType.all
+    @resourceTypes = ResourceType.all.offset(params[:offset] || 0).limit(params[:limit] || 10)
   end
 
   def show

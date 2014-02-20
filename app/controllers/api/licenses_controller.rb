@@ -6,7 +6,7 @@ class Api::LicensesController < Api::BaseController
   around_filter :render_error, except: [:index]
 
   def index
-    @licenses = License.all
+    @licenses = License.all.offset(params[:offset] || 0).limit(params[:limit] || 10)
   end
 
   def show
