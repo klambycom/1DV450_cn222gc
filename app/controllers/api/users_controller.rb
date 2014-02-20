@@ -1,4 +1,4 @@
-class Api::UsersController < ApiController
+class Api::UsersController < Api::BaseController
   doorkeeper_for :all
   before_filter :find_user, except: [:index]
   around_filter :render_error, except: [:index]

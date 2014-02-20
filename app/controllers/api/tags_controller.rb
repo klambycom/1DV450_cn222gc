@@ -1,4 +1,4 @@
-class Api::TagsController < ApiController
+class Api::TagsController < Api::BaseController
   doorkeeper_for :all, except: [:index, :show]
   before_filter :restrict_access_with_token, except: [:create, :update, :destroy]
 

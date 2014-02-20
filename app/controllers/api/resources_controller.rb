@@ -1,4 +1,4 @@
-class Api::ResourcesController < ApiController
+class Api::ResourcesController < Api::BaseController
   doorkeeper_for :all, except: [:index, :show]
   before_filter :restrict_access_with_token, except: [:create, :update, :destroy]
 
