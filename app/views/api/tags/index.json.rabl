@@ -1,3 +1,11 @@
-collection @tags => :tags
+object false
 
-extends "api/tags/show"
+node do
+  child @tags => :data do
+    extends "api/tags/show"
+  end
+
+  node :links do
+    attributes self: request.original_url
+  end
+end

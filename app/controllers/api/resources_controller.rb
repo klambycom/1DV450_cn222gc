@@ -8,8 +8,6 @@ class Api::ResourcesController < Api::BaseController
   def index
     @resources = Resource.all.offset(params[:offset] || 0).limit(params[:limit] || 10)
     @only = params[:only] && params[:only].split(',') || []
-    @offset = params[:offset]
-    @limit = params[:limit]
   end
 
   def show
