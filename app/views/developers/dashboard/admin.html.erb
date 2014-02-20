@@ -1,0 +1,16 @@
+<% provide :title, "Alla applikationer" %>
+<% highlight :admin %>
+
+<div class="page-header">
+  <h1>
+    Admin
+  </h1>
+</div>
+
+<% if @applications.present? %>
+  <div class="list-group">
+    <%= render partial: "application_short", collection: @applications, as: :app %>
+  </div>
+<% else %>
+  <p>Det finns inte några applikationer än.</p>
+<% end %>

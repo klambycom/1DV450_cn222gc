@@ -5,9 +5,13 @@
   <h1>
     Applikationen: <%= @application.name %>
     <small>
-      <%= link_to 'Lista alla', developers_dashboard_index_path %>
-      <%= link_to 'Ändra', edit_developers_dashboard_path(@application) %>
-      <%= render 'delete_form', application: @application %>
+      <% if current_user.admin? %>
+        <%= render 'delete_form', application: @application %>
+      <% else %>
+        <%= link_to 'Lista alla', developers_dashboard_index_path %>
+        <%= link_to 'Ändra', edit_developers_dashboard_path(@application) %>
+        <%= render 'delete_form', application: @application %>
+      <% end %>
     </small>
   </h1>
 </div>

@@ -24,6 +24,11 @@
               <li class="<%= highlight?(:dashboard) %>">
                 <%= link_to "Kontrollpanelen", developers_dashboard_index_path %>
               </li>
+              <% if admin? %>
+                <li class="<%= highlight?(:admin) %>">
+                  <%= link_to "Admin", developers_admin_path %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
 

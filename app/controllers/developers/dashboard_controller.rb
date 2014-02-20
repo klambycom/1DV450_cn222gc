@@ -1,6 +1,11 @@
 class Developers::DashboardController < Developers::BaseController
-  before_filter :find_application, except: [:index, :new, :create]
+  before_filter :find_application, except: [:admin, :index, :new, :create]
   before_action :require_login
+  before_action :require_admin, only: :admin
+
+  def admin
+    @applications = Doorkeeper::Application.all
+  end
 
   def index
   end
@@ -21,7 +26,7 @@ class Developers::DashboardController < Developers::BaseController
   end
 
   def show
-    unless current_user_is_owner?
+    unless current_user_is_owner? || current_user.admin?
       flash[:error] = "Kunde inte hitta den valda applikationen"
       redirect_to developers_dashboard_index_url
     end
@@ -31,16 +36,20 @@ class Developers::DashboardController < Developers::BaseController
   end
 
   def update
-    if @application.update_attributes application_params
-      redirect_to developers_dashboard_url(@application)
-    else
-      render :edit
+    unless current_user_is_owner?
+      if @application.update_attributes application_params
+        redirect_to developers_dashboard_url(@application)
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
-    flash[:notice] = "Applikationen \"#{@application.name}\" är borttagen." if @application.destroy
-    redirect_to developers_dashboard_index_url
+    if current_user_is_owner? || current_user.admin?
+      flash[:notice] = "Applikationen \"#{@application.name}\" är borttagen." if @application.destroy
+      redirect_to developers_dashboard_index_url
+    end
   end
 
   private

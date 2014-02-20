@@ -10,6 +10,7 @@ Toerh::Application.routes.draw do
   resources :sessions
 
   namespace :developers, path: "", constraints: { subdomain: 'developers' } do
+    get 'admin' => 'dashboard#admin', as: :admin
     resources :dashboard
     resources :docs
     get '' => 'docs#index', as: :root
