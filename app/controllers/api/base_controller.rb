@@ -32,11 +32,10 @@ class Api::BaseController  < ActionController::Base
 
     def render_error
       begin
-        fadsfa
         yield
       rescue ActiveRecord::RecordInvalid => e
         @errors = e.record.errors
-        render 'api/errors/400', status: 422
+        render 'api/errors/400', status: 400
       rescue
         render 'api/errors/500', status: 500
       end
