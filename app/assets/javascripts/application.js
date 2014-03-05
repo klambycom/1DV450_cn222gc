@@ -12,6 +12,7 @@
 //
 //= require turbolinks
 //= require angular
+//= require init
 //= require_tree ./services
 //= require_tree ./filters
 //= require_tree ./controllers

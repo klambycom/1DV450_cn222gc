@@ -2,5 +2,12 @@
 
 <div id="search"></div>
 
-<div id="resources" data-resources="<%= render(template: "api/resources/index.rabl") %>">
+<div id="resources"
+     data-resources="<%= render(template: "api/resources/index.rabl") %>"
+     ng-controller="ResourcesController">
+     {{test}}
 </div>
+
+<script>
+  var initData = JSON.parse(document.querySelector("#resources").getAttribute("data-resources"));
+</script>

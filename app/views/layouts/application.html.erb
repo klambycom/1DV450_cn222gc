@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="TOERH">
   <div class="container">
     <% flash.each do |type, error| %>
       <div class="alert alert-<%= type %>"><%= error %></div>
