@@ -1,11 +1,9 @@
 /*global angular, app, console */
 
-app.controller('ResourcesController', function ($scope, Resource) {
+app.controller('ResourcesController', function ($scope, Resource, AlertFactory) {
 	'use strict';
 
 	Resource.get(function (res) {
 		$scope.resources = res.items;
-	}, function (error) {
-		console.log(error);
-	});
+	}, AlertFactory.error('Resource'));
 });
