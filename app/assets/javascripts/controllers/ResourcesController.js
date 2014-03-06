@@ -1,7 +1,11 @@
-/*global angular, initData */
+/*global angular, app, console */
 
-angular.module('TOERH').controller('ResourcesController', function ($scope) {
+app.controller('ResourcesController', function ($scope, Resource) {
 	'use strict';
 
-	$scope.resources = initData.items;
+	Resource.get(function (res) {
+		$scope.resources = res.items;
+	}, function (error) {
+		console.log(error);
+	});
 });

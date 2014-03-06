@@ -1,3 +1,3 @@
 /*global angular */
 
-angular.module('TOERH', []);
+var app = angular.module('TOERH', ['ngResource']);
