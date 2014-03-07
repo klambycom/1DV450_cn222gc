@@ -6,4 +6,8 @@ app.controller('ResourcesController', function ($scope, Resource, AlertFactory) 
 	Resource.get(function (res) {
 		$scope.resources = res.items;
 	}, AlertFactory.error('Resource'));
+
+	Resource.query({ id: 1 }, function (res) {
+		console.log(res);
+	}, AlertFactory.error('Resource'));
 });

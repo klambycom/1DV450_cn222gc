@@ -1,39 +1,40 @@
-/*global app, console */
+/*jslint es5: true */
+/*global app, console, alert */
 
 app.factory('AlertFactory', function ($filter, $translate) {
-	'use strict';
+    'use strict';
 
-	var createError = function (message) {
-			console.log('ERROR! ' + message);
-		},
-		createInfo = function (message) {
-			console.log('INFO! ' + message);
-		},
-		createWarning = function (message) {
-			console.log('WARNING! ' + message);
-		},
-		createSuccess = function (message) {
-			console.log('SUCCESS! ' + message);
-		};
+    var createAlert = function (type) {
+            return function (message) {
+                console.log(type + '! ' + message);
+            };
+        },
+        noTranslation = function (message) {
+            alert('No translation for "' + message + '".');
+        };
 
-	return {
-		error: function (type) {
-			return function (error) {
-				$translate('ALERT.' + type + '.' + error.status)
-					.then(createError);
-			};
-		},
-		info: function (key) {
-			$translate(key)
-				.then(createInfo);
-		},
-		warning: function (key) {
-			$translate(key)
-				.then(createWarning);
-		},
-		success: function (key) {
-			$translate(key)
-				.then(createSuccess);
-		}
-	};
+    return {
+        error: function (type) {
+            return function (error) {
+                $translate('ALERT.' + type + '.' + error.status)
+                    .then(createAlert('ERROR'))
+                    .catch(noTranslation);
+            };
+        },
+        info: function (key) {
+            $translate(key)
+                .then(createAlert('INFO'))
+                .catch(noTranslation);
+        },
+        warning: function (key) {
+            $translate(key)
+                .then(createAlert('WARNING'))
+                .catch(noTranslation);
+        },
+        success: function (key) {
+            $translate(key)
+                .then(createAlert('SUCCESS'))
+                .catch(noTranslation);
+        }
+    };
 });
