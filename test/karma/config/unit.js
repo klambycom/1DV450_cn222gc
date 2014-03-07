@@ -15,6 +15,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'http://localhost:3000/assets/application.js',
+      'test/karma/angular-mocks.js',
       'test/javascripts/**/*.spec.js'
     ],
 
