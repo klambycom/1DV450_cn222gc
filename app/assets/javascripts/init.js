@@ -1,9 +1,28 @@
-/*global angular */
+/*global angular, ResourcesController, ResourceDetailsController */
 
 var app = angular.module('TOERH', ['ngResource', 'pascalprecht.translate']);
 
-app.config(function ($translateProvider) {
+app.config(function ($routeProvider, $translateProvider) {
     'use strict';
+
+    $routeProvider
+        .when('/', {
+            templateUrl: 'templates/resources/index.html',
+            controller: ResourcesController
+        })
+        .when('/resource/new', {
+            templateUrl: 'templates/resources/index.html',
+            controller: ResourcesController
+        })
+        .when('/resource/:id', {
+            templateUrl: 'templates/resources/show.html',
+            controller: ResourceDetailsController
+        })
+        .when('/resource/:id/edit', {
+            templateUrl: 'templates/resources/show.html',
+            controller: ResourceDetailsController
+        })
+        .otherwise({ redirectTo: '/' });
 
     // http://www.ng-newsletter.com/posts/angular-translate.html
     // http://angular-translate.github.io
