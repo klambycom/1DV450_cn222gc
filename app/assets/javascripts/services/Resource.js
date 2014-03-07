@@ -9,7 +9,7 @@ app.factory('Resource', function ($resource) {
 	return $resource('http://api.lvh.me:3000/resources/:id', { id: '@id' }, {
 		'get':	  { method: 'GET', headers: { 'Authorization': token } },
 		'save':	  { method: 'POST' },
-		'query':  { method: 'GET', isArray: true, headers: { 'Authorization': token } },
+		'query':  { method: 'GET', /*isArray: true, */headers: { 'Authorization': token } },
 		'remove': { method: 'DELETE' },
 		'delete': { method: 'DELETE' }
 	});
