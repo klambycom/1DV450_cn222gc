@@ -1,6 +1,10 @@
 /*global angular */
 
-var app = angular.module('TOERH', ['ngResource', 'pascalprecht.translate']);
+var app = angular.module('TOERH', [
+		'ngResource',
+		'pascalprecht.translate',
+		'angular-md5'
+	]);
 
 app.config(function ($translateProvider) {
     'use strict';
