@@ -208,11 +208,11 @@ app.directive('gravatar', function () {
     return {
         restrict: 'E',
         scope: {
-            email: '=?',
-            hash: '=?',
-            size: '=?',
-            default: '=?',
-            rating: '=?'
+            email:   '=?',
+            hash:    '=?',
+            size:    '@?',
+            default: '@?',
+            rating:  '@?'
         },
         template: '<img src="http://www.gravatar.com/avatar/{{email}}?s={{size}}&r={{rating}}&d={{default}}">',
         link: function (scope, element, attrs) {
@@ -223,13 +223,13 @@ app.directive('gravatar', function () {
             function eq(a) { return function (b) { return a === b; }; }
             function any(xs) { return xs.reduce(function (acc, x) { return x || acc; }, false); }
 
-            if (scope.email !== null && scope.email !== undefined && scope.email !== '') {
+            if (isSet('email')) {
                 // 9111d52badda5eb1be20947fe3a49d79
                 scope.email = md5(scope.email.toLowerCase());
             }
 
             if (isSet('rating') && !any(['g', 'pg', 'r', 'x'].map(eq(scope.rating)))) {
-                throw "Gravatar rating should bee g, pg, r or x.";
+                throw "Gravatar rating must be g, pg, r or x.";
             }
 
             if (!isSet('size')) { scope.size = 80; }
