@@ -191,7 +191,15 @@
 
 
 
-
+/*
+ * Gravatar
+ *
+ * Usage:
+ * email
+ * size - image size, default 80 (px)
+ * default - 404 (default), mm, identicon, monsterid, wavatar, retro, bland
+ *
+ */
 
 app.directive('gravatar', function () {
     'use strict';
@@ -201,9 +209,10 @@ app.directive('gravatar', function () {
         scope: {
             email: '=?',
             hash: '=?',
-            size: '=?'
+            size: '=?',
+            default: '=?'
         },
-        template: '<img src="http://www.gravatar.com/avatar/{{email}}?s={{size}}&r=pg&d=404">',
+        template: '<img src="http://www.gravatar.com/avatar/{{email}}?s={{size}}&r=pg&d={{default}}">',
         link: function (scope, element, attrs) {
             console.log(scope);
 
@@ -216,9 +225,8 @@ app.directive('gravatar', function () {
                 scope.email = md5(scope.email.toLowerCase());
             }
 
-            if (isSet('size')) {
-                scope.size = 80;
-            }
+            if (isSet('size')) { scope.size = 80; }
+            if (isSet('default')) { scope.default = '404'; }
         }
     };
 });
