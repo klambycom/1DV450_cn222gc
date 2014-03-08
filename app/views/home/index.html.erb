@@ -10,6 +10,8 @@
 
      <p class="search-info" ng-show="query">Du har sökt på {{query}}.</p>
 
+     <gravatar email="email" size="200"></gravatar>
+
      <ul ng-repeat="resource in resources | filter:query">
        <li>
          <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
