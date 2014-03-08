@@ -198,6 +198,7 @@
  * email
  * size - image size, default 80 (px)
  * default - 404 (default), mm, identicon, monsterid, wavatar, retro, bland
+ * rating - g, pg (default), r, x
  *
  */
 
@@ -210,23 +211,30 @@ app.directive('gravatar', function () {
             email: '=?',
             hash: '=?',
             size: '=?',
-            default: '=?'
+            default: '=?',
+            rating: '=?'
         },
-        template: '<img src="http://www.gravatar.com/avatar/{{email}}?s={{size}}&r=pg&d={{default}}">',
+        template: '<img src="http://www.gravatar.com/avatar/{{email}}?s={{size}}&r={{rating}}&d={{default}}">',
         link: function (scope, element, attrs) {
-            console.log(scope);
-
             function isSet(attr) {
-                return scope[attr] === null || scope[attr] === undefined || scope[attr] === '';
+                return scope[attr] !== null && scope[attr] !== undefined && scope[attr] !== '';
             }
+
+            function eq(a) { return function (b) { return a === b; }; }
+            function any(xs) { return xs.reduce(function (acc, x) { return x || acc; }, false); }
 
             if (scope.email !== null && scope.email !== undefined && scope.email !== '') {
                 // 9111d52badda5eb1be20947fe3a49d79
                 scope.email = md5(scope.email.toLowerCase());
             }
 
-            if (isSet('size')) { scope.size = 80; }
-            if (isSet('default')) { scope.default = '404'; }
+            if (isSet('rating') && !any(['g', 'pg', 'r', 'x'].map(eq(scope.rating)))) {
+                throw "Gravatar rating should bee g, pg, r or x.";
+            }
+
+            if (!isSet('size')) { scope.size = 80; }
+            if (!isSet('default')) { scope.default = '404'; }
+            if (!isSet('rating')) { scope.rating = 'pg'; }
         }
     };
 });
