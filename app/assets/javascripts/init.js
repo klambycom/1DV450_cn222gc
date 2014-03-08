@@ -1,6 +1,6 @@
 /*global angular, ResourcesController, ResourceDetailsController */
 
-var app = angular.module('TOERH', ['ngResource', 'pascalprecht.translate']);
+var app = angular.module('TOERH', ['ngResource', 'ngRoute', 'pascalprecht.translate']);
 
 app.config(function ($routeProvider, $translateProvider) {
     'use strict';
@@ -8,19 +8,23 @@ app.config(function ($routeProvider, $translateProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'templates/resources/index.html',
-            controller: ResourcesController
+            controller:  'ResourcesController'
         })
         .when('/resource/new', {
-            templateUrl: 'templates/resources/index.html',
-            controller: ResourcesController
+            templateUrl: 'templates/resources/new.html',
+            controller:  'ResourcesController'
         })
         .when('/resource/:id', {
             templateUrl: 'templates/resources/show.html',
-            controller: ResourceDetailsController
+            controller:  'ResourceDetailsController'
         })
         .when('/resource/:id/edit', {
-            templateUrl: 'templates/resources/show.html',
-            controller: ResourceDetailsController
+            templateUrl: 'templates/resources/edit.html',
+            controller:  'ResourceDetailsController'
+        })
+        .when('/search?q=:query', {
+            templateUrl: 'templates/resources/index.html',
+            controller:  'ResourcesController'
         })
         .otherwise({ redirectTo: '/' });
 
