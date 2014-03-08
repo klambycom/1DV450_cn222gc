@@ -1,14 +1,10 @@
 <h1>Under contruction</h1>
 
-<div id="search">
-  <input ng-model="query">
-</div>
+<search q="query"></search>
 
 <div id="resources"
      data-resources="<%= render(template: "api/resources/index.rabl") %>"
      ng-controller="ResourcesController">
-
-     <p class="search-info" ng-show="query">Du har sökt på {{query}}.</p>
 
      <ul ng-repeat="resource in resources | filter:query">
        <li>
