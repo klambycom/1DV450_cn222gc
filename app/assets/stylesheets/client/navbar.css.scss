@@ -1,0 +1,71 @@
+nav {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-static-top;
+
+  background: rgb(0,239,155);
+  background: linear-gradient(45deg,  rgba(0,239,155,1) 0%,rgba(0,190,211,1) 100%);
+
+  color: white;
+  font-weight: lighter;
+
+  #navbar-header a {
+    @extend .navbar-brand;
+
+    color: white;
+    font-size: 2em;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .6);
+    }
+  }
+
+  #navbar-menu {
+    @extend .collapse;
+    @extend .navbar-collapse;
+
+    ul {
+      @extend .nav;
+      @extend .navbar-nav;
+
+      li a {
+        color: white;
+        font-size: 1.3em;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, .6);
+        }
+
+        .glyphicon {
+          font-size: .8em;
+        }
+      }
+    }
+  }
+
+  #navbar-user {
+    @extend .navbar-text;
+    @extend .navbar-right;
+
+    color: white;
+    font-weight: 200;
+
+    a {
+      @extend .navbar-link;
+
+      color: white;
+    font-weight: 500;
+    }
+  }
+}
+
+/*
+background: rgb(0,239,155);
+background: -moz-linear-gradient(45deg,  rgba(0,239,155,1) 0%, rgba(0,190,211,1) 100%);
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(0,239,155,1)), color-stop(100%,rgba(0,190,211,1)));
+background: -webkit-linear-gradient(45deg,  rgba(0,239,155,1) 0%,rgba(0,190,211,1) 100%);
+background: -o-linear-gradient(45deg,  rgba(0,239,155,1) 0%,rgba(0,190,211,1) 100%);
+background: -ms-linear-gradient(45deg,  rgba(0,239,155,1) 0%,rgba(0,190,211,1) 100%);
+background: linear-gradient(45deg,  rgba(0,239,155,1) 0%,rgba(0,190,211,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ef9b', endColorstr='#00bed3',GradientType=1 );
+*/

@@ -7,6 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="TOERH">
+  <nav role="navigation">
+    <div class="container">
+      <%# Site name %>
+      <div id="navbar-header">
+        <a href="#">TOERH</a>
+      </div>
+      <%# Menu %>
+      <div id="navbar-menu">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-home"></span>
+              Förstasidan
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-pencil"></span>
+              Skapa ny resurs
+            </a>
+          </li>
+        </ul>
+        <%# User %>
+        <p id="navbar-user">
+          Inloggad som <a href="#">Christian Nilsson</a>
+        </p>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
     <% flash.each do |type, error| %>
       <div class="alert alert-<%= type %>"><%= error %></div>
