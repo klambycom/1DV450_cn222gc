@@ -8,6 +8,7 @@ app.controller('ResourcesController', function ($scope, Resource, AlertFactory) 
 
     Resource.get(function (res) {
         $scope.resources = res.items;
+        $scope.categories = res.items.map(dot('resource_type'));
         $scope.tags = flatten(res.items.map(dot('tags')));
     }, AlertFactory.error('Resource'));
 

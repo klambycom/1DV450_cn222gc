@@ -18,11 +18,9 @@
     Kategorier
   </h2>
   <p>
-    <span class="label label-default"><a href="#">Default</a></span>
-    <span class="label label-default"><a href="#">fafda</a></span>
-    <span class="label label-default"><a href="#">fsad</a></span>
-    <span class="label label-default"><a href="#">da</a></span>
-    <span class="label label-default"><a href="#">fhakls</a></span>
+    <span ng-repeat-start="category in categories"
+          class="label label-default"><a href="#">{{category.name}}</a></span>
+    <span ng-repeat-end></span>
   </p>
 
   <h2>
