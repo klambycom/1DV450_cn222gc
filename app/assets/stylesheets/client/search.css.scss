@@ -21,6 +21,17 @@
     background-color: rgba(235, 235, 235, .9);
     border: 0;
     padding: 5px 15px 5px 45px;
+
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    box-shadow: 0 0 5px rgba(48, 175, 180, 0);
+    border: 1px solid rgba(48, 175, 180, 0);
+
+    &:focus {
+      padding: 5px 15px 5px 45px;
+      box-shadow: 0 0 5px rgba(48, 175, 180, 1);
+      border: 1px solid rgba(48, 175, 180, 1);
+    }
   }
 }
 
