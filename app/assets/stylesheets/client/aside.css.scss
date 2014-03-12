@@ -1,0 +1,19 @@
+aside {
+  text-align: justify;
+
+  .label {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 2em;
+
+    a {
+      color: white;
+    }
+
+    @include gradient-background(.8);
+
+    &:hover {
+      @include gradient-background(1);
+    }
+  }
+}
