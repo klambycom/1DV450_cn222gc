@@ -1,0 +1,29 @@
+#search {
+  font-size: 2em;
+  padding: 1px;
+  position: relative;
+
+  @include gradient-background(.5);
+
+  &:before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e003";
+    font-size: .8em;
+    color: rgb(0, 217, 179);
+
+    position: absolute;
+    left: 15px;
+    top: 11px;
+  }
+
+  input {
+    width: 100%;
+    background-color: rgba(235, 235, 235, .9);
+    border: 0;
+    padding: 5px 15px 5px 45px;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: rgba(0, 217, 179, .5);
+}

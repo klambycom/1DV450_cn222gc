@@ -37,6 +37,18 @@
     </div>
   </nav>
 
+  <header>
+    <div class="container">
+      <h1>Open Education Resources</h1>
+
+      <p>hej</p>
+
+      <div id="search">
+        <input ng-model="query" placeholder="Sök resurs">
+      </div>
+    </div>
+  </header>
+
   <div class="container">
     <% flash.each do |type, error| %>
       <div class="alert alert-<%= type %>"><%= error %></div>
