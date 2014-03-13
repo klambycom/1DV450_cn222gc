@@ -21,7 +21,7 @@ end
 
 if show_data_for? 'user'
   child :user do
-    attributes :uuid, :firstname
+    attributes :uuid, :firstname, :email
   end
 end
 

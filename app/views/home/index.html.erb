@@ -1,15 +1,28 @@
 <div id="resources" ng-controller="ResourcesController">
 
-     <p class="search-info" ng-show="query">Du har sökt på {{query}}.</p>
+  <p class="search-info" ng-show="query">Du har sökt på {{query}}.</p>
 
-     <gravatar email="email" size="200" default="http://www.google.com/a img.jpg"></gravatar>
+  <div class="resource" ng-repeat="resource in resources | filter:query">
+    <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
 
-     <ul ng-repeat="resource in resources | filter:query">
-       <li>
-         <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
-         <p>{{resource.description}}</p>
-       </li>
-     </ul>
+    <p>
+    {{resource.description}}
+
+    <span ng-repeat="tag in resource.tags" class='tag'>
+      <a href="#">
+        <span class="glyphicon glyphicon-tag"></span>
+        {{tag.tag}}
+      </a>
+    </span>
+    </p>
+
+    <small>
+      Skapades av
+      <img gravatar email="resource.user.email" size="15" default="mm"></gravatar>
+      {{resource.user.firstname}}
+      <span am-time-ago="resource.created_at"></span>.
+    </small>
+  </div>
 </div>
 
 <aside id="filter" ng-controller="ResourcesController">

@@ -8,12 +8,9 @@
 @import "client/navbar";
 @import "client/header";
 @import "client/search";
+@import "client/resources";
 @import "client/aside";
 @import "client/footer";
-
-#resources {
-  @extend .col-md-8;
-}
 
 #filter {
   @extend .col-md-4;

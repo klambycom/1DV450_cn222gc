@@ -1,0 +1,17 @@
+#resources {
+  @extend .col-md-8;
+
+  .resource {
+    small {
+      color: gray;
+    }
+
+    .tag {
+      margin: 0 3px;
+
+      a {
+        color: rgb(0, 194, 207);
+      }
+    }
+  }
+}

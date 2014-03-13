@@ -30,17 +30,15 @@ app.directive('gravatar', ['md5', function (md5) {
     function any(xs) { return xs.reduce(function (acc, x) { return x || acc; }, false); }
 
     return {
-        restrict: 'E',
+        restrict: 'A',
         scope: {
             email:   '=?',
             hash:    '=?',
             size:    '@?',
             default: '@?',
             rating:  '@?',
-            url:     '@?',
             https:   '@?'
         },
-        template: '<img src="{{url}}" />',
         link: function (scope, element, attrs) {
             var url, inScope = isSet(scope), haveAttr = isSet(attrs.$attr);
 
@@ -69,7 +67,6 @@ app.directive('gravatar', ['md5', function (md5) {
 
             // add all to src
             attrs.$set('src', url);
-            scope.$watch(scope.url, function () { scope.url = url; });
         }
     };
 }]);

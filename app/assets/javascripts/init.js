@@ -3,7 +3,8 @@
 var app = angular.module('TOERH', [
 		'ngResource',
 		'pascalprecht.translate',
-		'angular-md5'
+		'angular-md5',
+		'angularMoment'
 	]);
 
 app.config(function ($translateProvider) {
@@ -21,4 +22,10 @@ app.config(function ($translateProvider) {
     });
 
     $translateProvider.preferredLanguage('en');
+});
+
+app.run(function ($window) {
+	'use strict';
+
+	$window.moment.lang('sv');
 });
