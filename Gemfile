@@ -55,3 +55,5 @@ gem 'doorkeeper', '~> 1.0.0'
 gem 'redcarpet', '~> 3.1.0'
 
 gem 'friendly_id', '~> 5.0.0'
+
+gem 'rack-cors'

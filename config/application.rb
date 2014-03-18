@@ -35,5 +35,12 @@ module Toerh
     #end
 
     config.active_record.whitelist_attributes = false
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
+      end
+    end
   end
 end
