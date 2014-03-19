@@ -1,4 +1,4 @@
-/*global app, angular, window */
+/*global app, angular */
 
 app.factory('User', ['$resource', '$window', 'Authorization',
     function ($resource, $window, Authorization) {
