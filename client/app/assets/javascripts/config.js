@@ -14,7 +14,10 @@ app.config(['$translateProvider', 'AuthorizationProvider',
                 'Resource': {
                     '401': 'Error loading resources because not authorized!',
                     '404': 'Could not find the resource.'
-                }
+                },
+				'User': {
+					'401': 'Error loading user because not authorized!'
+				}
             }
         });
 
