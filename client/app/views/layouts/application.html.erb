@@ -30,8 +30,9 @@
           </li>
         </ul>
         <%# User %>
-        <p id="navbar-user">
-          Inloggad som <a href="#">Christian Nilsson</a>
+        <p id="navbar-user" ng-controller="UserController">
+          <span ng-show="isSignedIn">Inloggad som <a href="#">{{user.name}}</a></span>
+          <span ng-hide="isSignedIn"><a ng-click="login()" href="#">Logga in</a></span>
         </p>
       </div>
     </div>

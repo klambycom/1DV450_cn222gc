@@ -13,6 +13,7 @@
 //= require turbolinks
 //= require angular
 //= require angular-resource
+//= require angular-cookies
 //= require_tree ./libs
 //= require init
 //= require_tree ./services

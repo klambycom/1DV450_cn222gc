@@ -13,12 +13,4 @@ app.controller('ResourcesController', function ($scope, Resource, AlertFactory) 
     }, AlertFactory.error('Resource'));
 
     $scope.email = 'christian@klamby.com';
-
-	$scope.login = function () {
-		window.location.href = "http://lvh.me:3001/auth/toerh_doorkeeper";
-	};
-
-    //Resource.query({ id: '94240bb3-b367-4166-bf1b-6cf4dfbb8c66' }, function (res) {
-    //  console.log(res);
-    //}, AlertFactory.error('Resource'));
 });
