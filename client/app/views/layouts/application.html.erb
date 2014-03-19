@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="TOERH">
 <head>
   <title>Toerh</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="TOERH" data-no-turbolink>
+<body ng-controller="MainController">
   <nav role="navigation">
     <div class="container">
       <%# Site name %>
       <div id="navbar-header">
-        <a href="#">TOERH</a>
+        <a href="/">TOERH</a>
       </div>
       <%# Menu %>
       <div id="navbar-menu">
         <ul>
           <li>
-            <a href="#">
+            <a href="/">
               <span class="glyphicon glyphicon-home"></span>
               Förstasidan
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/resources/new">
               <span class="glyphicon glyphicon-pencil"></span>
               Skapa ny resurs
             </a>
@@ -53,12 +53,8 @@
     </div>
   </header>
 
-  <div class="container">
-    <% flash.each do |type, error| %>
-      <div class="alert alert-<%= type %>"><%= error %></div>
-    <% end %>
-
-    <%= yield %>
+  <div id="main" class="container">
+    <div ng-view></div>
   </div>
 
   <footer>

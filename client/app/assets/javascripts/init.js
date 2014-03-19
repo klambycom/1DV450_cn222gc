@@ -3,6 +3,7 @@
 var app = angular.module('TOERH', [
         'ngResource',
         'ngCookies',
+        'ngRoute',
         'pascalprecht.translate',
         'angular-md5',
         'angularMoment'
