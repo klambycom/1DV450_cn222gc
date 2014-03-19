@@ -5,14 +5,15 @@
     <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
 
     <p>
-    {{resource.description}}
+      {{resource.description}}
+      <a href="/resources/{{resource.uuid}}">[Mer]</a>
 
-    <span ng-repeat="tag in resource.tags" class='tag'>
-      <a href="#">
-        <span class="glyphicon glyphicon-tag"></span>
-        {{tag.tag}}
-      </a>
-    </span>
+      <span ng-repeat="tag in resource.tags" class='tag'>
+        <a href="/tags/{{tag.uuid}}">
+          <span class="glyphicon glyphicon-tag"></span>
+          {{tag.tag}}
+        </a>
+      </span>
     </p>
 
     <small>
@@ -24,7 +25,7 @@
   </div>
 </div>
 
-<aside id="filter" ng-controller="ResourcesController">
+<aside id="filter">
   <h2>
     <span class="glyphicon glyphicon-link"></span>
     Kategorier

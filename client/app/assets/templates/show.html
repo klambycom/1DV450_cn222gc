@@ -1,1 +1,47 @@
-<h1>show</h1>
+<div id="resource">
+  <h1><a href="{{resource.url}}">{{resource.name}}</a></h1>
+
+  <p>{{resource.description}}</p>
+
+  <p class="meta">
+    <div class="user">
+      Skapades av
+      {{resource.user}}
+      <img gravatar email="resource.user.email" size="15" default="mm"></gravatar>
+      {{resource.user.firstname}}
+    </div>
+
+    <div class="updated-at">
+      Uppdaterades {{resource.updated_at}}.
+    </div>
+
+    <div class="created-at">
+      Skapades {{resource.created_at}}.
+    </div>
+  </p>
+
+  <h2>Licens</h2>
+  <p class="license">
+    {{resource.license}}
+  </p>
+</div>
+
+<aside id="filter">
+  <h2>
+    <span class="glyphicon glyphicon-link"></span>
+    Kategori
+  </h2>
+  <p>
+    <span class="label label-default"><a href="/categories/resource.resource_type.uuid">{{resource.resource_type.name}}</a></span>
+  </p>
+
+  <h2>
+    <span class="glyphicon glyphicon-tag"></span>
+    Taggar
+  </h2>
+  <p>
+    <span ng-repeat-start="tag in resource.tags"
+      class="label label-default"><a href="/tags/{{tag.uuid}}">{{tag.tag}}</a></span>
+    <span ng-repeat-end></span>
+  </p>
+</aside>
