@@ -1,0 +1,17 @@
+@import "bootstrap";
+
+@mixin gradient-background($opacity) {
+  background: rgb(0,239,155);
+  background: linear-gradient(45deg,  rgba(0,239,155,$opacity) 0%,rgba(0,190,211,$opacity) 100%);
+}
+
+@import "navbar";
+@import "header";
+@import "search";
+@import "resources";
+@import "aside";
+@import "footer";
+
+#filter {
+  @extend .col-md-4;
+}
