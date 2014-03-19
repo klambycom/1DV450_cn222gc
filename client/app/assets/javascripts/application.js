@@ -20,3 +20,4 @@
 //= require_tree ./filters
 //= require_tree ./controllers
 //= require_tree ./directives
+//= require config
