@@ -354,3 +354,567 @@ Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at
 
 
 Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:23:07 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 55ms (Views: 54.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:28:38 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:28:40 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=afb7481bea205b426773b62810ce7dfe4e4d2ef47d0cb2bbe6a6b7bc7dbbe595&state=5ab6a0ab9e479ac05eedc5e0f34e104106bac93b9f10901d" for 127.0.0.1 at 2014-03-19 01:28:40 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"afb7481bea205b426773b62810ce7dfe4e4d2ef47d0cb2bbe6a6b7bc7dbbe595", "state"=>"5ab6a0ab9e479ac05eedc5e0f34e104106bac93b9f10901d"}
+Completed 500 Internal Server Error in 2ms
+
+RuntimeError (--- !ruby/hash:OmniAuth::AuthHash
+provider: :toerh_doorkeeper
+uid: f6e195c7-2d28-420e-9534-1fb87524a9d2
+info: !ruby/hash:OmniAuth::AuthHash::InfoHash
+  name: Member Test
+  email: member@test.com
+  first_name: Member
+  last_name: Test
+credentials: !ruby/hash:OmniAuth::AuthHash
+  token: a659a9391a2bc0df302e67e3af16a8bcf1ee887bc80547615e68dc9aa98e6bd5
+  expires_at: 1395196120
+  expires: true
+extra: !ruby/hash:OmniAuth::AuthHash {}
+):
+  app/controllers/home_controller.rb:6:in `callback'
+
+
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:28:47 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:29:43 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=378d30ce4b862e9e6292556dcbaef7636d7f225354cbfd1d0a1a7ce1496fecea&state=806d028ac66d031775f5c03565857804a12ea6d40e7c5ab9" for 127.0.0.1 at 2014-03-19 01:29:43 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"378d30ce4b862e9e6292556dcbaef7636d7f225354cbfd1d0a1a7ce1496fecea", "state"=>"806d028ac66d031775f5c03565857804a12ea6d40e7c5ab9"}
+Completed 500 Internal Server Error in 1ms
+
+RuntimeError (--- !ruby/hash:OmniAuth::AuthHash
+provider: :toerh_doorkeeper
+uid: f6e195c7-2d28-420e-9534-1fb87524a9d2
+info: !ruby/hash:OmniAuth::AuthHash::InfoHash
+  name: Member Test
+  email: member@test.com
+  first_name: Member
+  last_name: Test
+credentials: !ruby/hash:OmniAuth::AuthHash
+  token: 8172fa2ac8378cd116c1ad6d7b2c50a6dee7bda7153741f812e8a22574870e54
+  expires_at: 1395196183
+  expires: true
+extra: !ruby/hash:OmniAuth::AuthHash {}
+):
+  app/controllers/home_controller.rb:6:in `callback'
+
+
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/christian/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:37:42 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=ccae3b7d3990f34cfa10ecddbe2995a29e0bf920ed766521b75518ca000d2ec0&state=f0478c72319e21d37c48b0b7cf38155703c7ad888d26418c" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"ccae3b7d3990f34cfa10ecddbe2995a29e0bf920ed766521b75518ca000d2ec0", "state"=>"f0478c72319e21d37c48b0b7cf38155703c7ad888d26418c"}
+  Rendered home/callback.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:37:45 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:28 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:41:29 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=d8c8d3916cac32a1d487fd8d081ce5c5d7faad1d1ea16186a0eda36083bd08c2&state=297130eaf2972d83311a3566fa95ad84cdbc3022d5eeedc4" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"d8c8d3916cac32a1d487fd8d081ce5c5d7faad1d1ea16186a0eda36083bd08c2", "state"=>"297130eaf2972d83311a3566fa95ad84cdbc3022d5eeedc4"}
+  Rendered home/callback.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:41:30 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:44:22 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=a4b8f726dc6415a7f8d1bfd262c52ad513715754d0bad56da79fc08e47a888c9&state=8b9578fe7bbf90cd3457eaed16afb118d6947cf21e864cc9" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"a4b8f726dc6415a7f8d1bfd262c52ad513715754d0bad56da79fc08e47a888c9", "state"=>"8b9578fe7bbf90cd3457eaed16afb118d6947cf21e864cc9"}
+  Rendered home/callback.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:44:24 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:46:55 +0100
+
+
+Started GET "/auth/toerh_doorkeeper" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/auth/toerh_doorkeeper/callback?code=ec5118959f815e2b1269a9a7042ecfd128830b60ee16570cba9d9002895c0278&state=747eebd6955e17d4fbd68bad61c38757a917a4b2c3599fb9" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+Processing by HomeController#callback as HTML
+  Parameters: {"code"=>"ec5118959f815e2b1269a9a7042ecfd128830b60ee16570cba9d9002895c0278", "state"=>"747eebd6955e17d4fbd68bad61c38757a917a4b2c3599fb9"}
+Redirected to http://lvh.me:3001/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/angular-resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/libs/angular-md5.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/angular.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/libs/angular-moment.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/libs/angular-translate.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/init.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/services/AlertFactory.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/services/Resource.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/directives/gravatar.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/controllers/ResourcesController.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-03-19 01:47:01 +0100
