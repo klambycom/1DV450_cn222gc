@@ -3,6 +3,13 @@ class HomeController < ApplicationController
   end
 
   def callback
-    raise env["omniauth.auth"].to_yaml
+    credentials = env["omniauth.auth"]["credentials"]
+
+    cookies[:access_token] = {
+      value: credentials["token"],
+      expires: Time.at(credentials["expires_at"])
+    } 
+
+    redirect_to root_url
   end
 end
