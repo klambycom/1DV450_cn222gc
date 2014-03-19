@@ -1,10 +1,10 @@
 /*global app, angular */
 
-app.factory('User', ['$resource', '$window', 'Authorization',
-    function ($resource, $window, Authorization) {
+app.factory('User', ['$resource', '$window', 'Authorization', 'APIUrl',
+    function ($resource, $window, Authorization, APIUrl) {
         'use strict';
 
-        var User = $resource('http://api.lvh.me:3000/users/:id', { id: '@id' }, {
+        var User = $resource(APIUrl.users, { id: '@id' }, {
             'me':  { method: 'GET', headers: Authorization.bearer() },
             'get': { method: 'GET', headers: Authorization.token() }
         });
@@ -12,7 +12,7 @@ app.factory('User', ['$resource', '$window', 'Authorization',
         User.authenticated = Authorization.isAuthenticated();
 
         User.login = function () {
-            $window.location.href = "http://lvh.me:3001/auth/toerh_doorkeeper";
+            $window.location.href = APIUrl.login;
         };
 
         User.logout = function () {

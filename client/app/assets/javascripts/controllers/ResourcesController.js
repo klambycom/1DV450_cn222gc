@@ -1,4 +1,4 @@
-/*global angular, app, console, window */
+/*global angular, app */
 
 app.controller('ResourcesController', function ($scope, Resource, AlertFactory) {
     'use strict';
