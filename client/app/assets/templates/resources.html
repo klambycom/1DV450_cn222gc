@@ -1,5 +1,7 @@
 <div id="resources">
-  <p class="search-info" ng-show="query">Du har sökt på {{query}}.</p>
+  <div class="page-header" ng-show="query">
+    <h1>Sökresultat</h1>
+  </div>
 
   <div class="resource" ng-repeat="resource in resources | filter:query">
     <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
@@ -31,7 +33,7 @@
     Kategorier
   </h2>
   <p>
-    <span ng-repeat-start="category in categories | unique:'uuid'"
+    <span ng-repeat-start="category in categories | unique:'uuid' | filter:query"
           class="label label-default"><a href="#">{{category.name}}</a></span>
     <span ng-repeat-end></span>
   </p>
@@ -41,7 +43,7 @@
     Taggar
   </h2>
   <p>
-    <span ng-repeat-start="tag in tags | unique:'uuid'"
+    <span ng-repeat-start="tag in tags | unique:'uuid' | filter:query"
           class="label label-default"><a href="#">{{tag.tag}}</a></span>
     <span ng-repeat-end></span>
   </p>
