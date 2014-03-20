@@ -7,7 +7,13 @@ class Api::ResourcesController < Api::BaseController
   before_filter :filter_result
 
   def index
-    @resources = Resource.all.offset(params[:offset] || 0).limit(params[:limit] || 10)
+    r = Resource.search(params[:query || ""])
+
+    @offset = params[:offset] || 0
+    @limit = params[:limit] || 10
+    @length = r.length
+
+    @resources = r.offset(@offset).limit(@limit)
   end
 
   def show

@@ -18,6 +18,15 @@ class Resource < ActiveRecord::Base
   validates :url, presence: true
   validates :description, presence: true
 
+  def self.search query
+    if query.blank?
+      scoped
+    else
+      q = "%#{query}%"
+      where("name like ? or description like ?", q, q)
+    end
+  end
+
   def generate_uuid
     begin
       self.uuid = SecureRandom.uuid
