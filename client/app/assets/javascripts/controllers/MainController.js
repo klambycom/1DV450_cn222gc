@@ -40,6 +40,7 @@ app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
                     'firstname': res.firstname,
                     'lastname': res.lastname,
                     'email': res.email,
+                    'isAdmin': !!res['admin?'],
                     'isAuthenticated': true
                 };
             }, Alert.error('User'));
