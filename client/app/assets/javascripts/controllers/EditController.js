@@ -57,10 +57,12 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
 
             if ($routeParams.id) {
                 Resource.update({ id: $routeParams.id }, data, function (res) {
+                    Alert.success('ALERT.Resource.PUT');
                     $location.path('/resources/' + res.uuid);
                 }, Alert.error('Resource'));
             } else {
                 Resource.save(data, function (res) {
+                    Alert.success('ALERT.Resource.POST');
                     $location.path('/resources/' + res.uuid);
                 }, Alert.error('Resource'));
             }

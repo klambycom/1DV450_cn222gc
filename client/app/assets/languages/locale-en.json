@@ -1,10 +1,12 @@
 {
     "ALERT": {
         "Resource": {
-            "400": "Error in posted resource data.",
-            "401": "Error loading resources because not authorized!",
-            "404": "Could not find the resource.",
-            "500": "An error occurred, please try again later."
+            "400":  "Error in posted resource data.",
+            "401":  "Error loading resources because not authorized!",
+            "404":  "Could not find the resource.",
+            "500":  "An error occurred, please try again later.",
+            "POST": "The resource is saved.",
+            "PUT":  "The resource is updated."
         },
         "User": {
             "401": "Error loading user because not authorized!",
@@ -29,5 +31,8 @@
     },
     "Create": {
         "NotLoggedIn": "Login to create resource."
+    },
+    "User": {
+        "Logout": "Your are now logged out!"
     }
 }
