@@ -43,7 +43,7 @@ class Api::ResourcesController < Api::BaseController
     end
 
     def resource_params
-      params.permit(:resource_type_id, :license_id, :user_id, :name, :url, :description)
+      params.permit(:resource_type_id, :license_id, :user_id, :name, :url, :description, :tags)
     end
 
     def filter_result
