@@ -1,7 +1,15 @@
 <div id="resource">
-  <h1><a href="{{resource.url}}">{{resource.name}}</a></h1>
+  <div class="page-header">
+    <h1><a href="{{resource.url}}">{{resource.name}}</a></h1>
+  </div>
 
   <p>{{resource.description}}</p>
+
+  <p ng-show="createdByMe" class="change-resource">
+    <span class="glyphicon glyphicon-cog"></span>
+    <a href="/resources/{{resource.uuid}}/edit">Ändra</a>
+    <a href="">Ta bort</a>
+  </p>
 
   <div class="user">
     Skapades av
