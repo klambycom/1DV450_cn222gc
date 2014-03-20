@@ -1,10 +1,16 @@
 /*global app */
 
 app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resource',
-                                  'License', 'ResourceTypes', 'Alert',
-    function ($scope, $routeParams, $location, Resource, License, ResourceTypes, Alert) {
+                                  'License', 'ResourceTypes', 'Alert', 'User',
+    function ($scope, $routeParams, $location, Resource, License, ResourceTypes,
+              Alert, User) {
 
         'use strict';
+
+        if (!User.authenticated) {
+            Alert.info(($routeParams.id ? 'Edit' : 'Create') + '.NotLoggedIn');
+            $location.path('/');
+        }
 
         var find = function (obj, k) {
                 return function (x) { return obj[k] === x[k]; };

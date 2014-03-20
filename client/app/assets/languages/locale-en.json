@@ -7,5 +7,11 @@
         "User": {
             "401": "Error loading user because not authorized!"
         }
+    },
+    "Edit": {
+        "NotLoggedIn": "Login to edit resource."
+    },
+    "Create": {
+        "NotLoggedIn": "Login to create resource."
     }
 }

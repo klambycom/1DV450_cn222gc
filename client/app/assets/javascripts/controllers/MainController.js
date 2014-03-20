@@ -24,12 +24,10 @@ app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
         });
 
         // User
-        $scope.isAuthenticated = User.authenticated;
-
         $scope.login = User.login;
 
         $scope.logout = function () {
-            $scope.isAuthenticated = false;
+            $scope.user = { isAuthenticated: false };
             User.logout();
         };
 
@@ -40,7 +38,8 @@ app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
                     'name': res.firstname + " " + res.lastname,
                     'firstname': res.firstname,
                     'lastname': res.lastname,
-                    'email': res.email
+                    'email': res.email,
+                    'isAuthenticated': true
                 };
             }, Alert.error('User'));
         }
