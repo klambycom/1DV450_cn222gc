@@ -1,4 +1,4 @@
-/*global app, console */
+/*global app */
 
 app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resource',
                                   'License', 'ResourceTypes', 'Alert',
@@ -6,7 +6,11 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
 
         'use strict';
 
-        $scope.newData = {};
+        var find = function (obj, key) {
+            return function (x) { return obj[key] === x[key]; };
+        };
+
+        $scope.resource = {};
 
         // Get all data needed
         License.query(function (res) {
@@ -18,25 +22,34 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         }, Alert.error('ResourceTypes'));
 
         if ($routeParams.id) {
-            console.log($routeParams.id);
-
             Resource.get({ id: $routeParams.id }, function (res) {
                 $scope.resource = res;
+                $scope.resource.license = $scope.licenses
+                    .filter(find(res.license, 'uuid'))[0];
+                $scope.resource.resourceType = $scope.resourceTypes
+                    .filter(find(res.resource_type, 'uuid'))[0];
             }, Alert.error('Resource'));
         }
 
         // Submit
         $scope.submit = function () {
-            var d = $scope.newData;
+            var d = $scope.resource,
+                data = {
+                    name: d.name,
+                    url: d.url,
+                    description: d.description,
+                    resource_type_id: d.resourceType.uuid,
+                    license_id: d.license.uuid
+                };
 
-            Resource.save({
-                name: d.name,
-                url: d.url,
-                description: d.description,
-                resource_type_id: d.resourceType.uuid,
-                license_id: d.license.uuid
-            }, function (data) {
-                $location.path('/resources/' + data.uuid);
-            }, Alert.error('Resource'));
+            if ($routeParams.id) {
+                Resource.save(data, function (res) {
+                    $location.path('/resources/' + res.uuid);
+                }, Alert.error('Resource'));
+            } else {
+                Resource.update({ id: $routeParams.id }, data, function (res) {
+                    $location.path('/resources/' + res.uuid);
+                }, Alert.error('Resource'));
+            }
         };
     }]);
