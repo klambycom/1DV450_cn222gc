@@ -27,7 +27,7 @@ end
 
 if show_data_for? 'license'
   child :license do
-    attributes :uuid, :name
+    attributes :uuid, :name, :description, :url
   end
 end
 

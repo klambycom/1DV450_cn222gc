@@ -3,26 +3,25 @@
 
   <p>{{resource.description}}</p>
 
-  <p class="meta">
-    <div class="user">
-      Skapades av
-      {{resource.user}}
-      <img gravatar email="resource.user.email" size="15" default="mm"></gravatar>
-      {{resource.user.firstname}}
-    </div>
+  <div class="user">
+    Skapades av
+    <img gravatar email="'{{resource.user.email}}'" size="15" default="mm">
+    {{resource.user.firstname}}
+  </div>
 
-    <div class="updated-at">
-      Uppdaterades {{resource.updated_at | date:'yyyy-MM-dd HH:mm:ss'}}.
-    </div>
+  <div class="updated-at">
+    Uppdaterades {{resource.updated_at | date:'yyyy-MM-dd HH:mm:ss'}}.
+  </div>
 
-    <div class="created-at">
-      Skapades {{resource.created_at | date:'yyyy-MM-dd HH:mm:ss'}}.
-    </div>
-  </p>
+  <div class="created-at">
+    Skapades {{resource.created_at | date:'yyyy-MM-dd HH:mm:ss'}}.
+  </div>
 
   <h2>Licens</h2>
+  <h3>{{resource.license.name}}</h3>
   <p class="license">
-    {{resource.license}}
+    {{resource.license.description}}
+    <a href="{{resource.license.url}}">Läs hela licensen</a>
   </p>
 </div>
 

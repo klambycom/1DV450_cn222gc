@@ -1,0 +1,29 @@
+#resource {
+  @extend .col-md-8;
+
+  h2 {
+    margin-top: 50px;
+  }
+
+  .user {
+    margin-bottom: 5px;
+    margin-top: 20px;
+
+    font-size: .95em;
+    color: rgb(100, 100, 100);
+  }
+
+  .updated-at, .created-at {
+    font-size: .85em;
+    color: rgb(100, 100, 100);
+  }
+
+  .license {
+    color: rgb(100, 100, 100);
+
+    a {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
