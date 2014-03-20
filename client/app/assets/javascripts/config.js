@@ -9,6 +9,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
 
         console.log(new Date());
 
+        // API
         AuthorizationProvider
             .setApplicationId('98540e836d1cb2ea0c0a6e2258bcbd3efec7fc22ef7c7d8b31745d192706fe3c');
 
@@ -20,6 +21,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
             .tags('http://api.lvh.me:3000/tags/:id')
             .login('http://lvh.me:3001/auth/toerh_doorkeeper');
 
+        // Routes
         $routeProvider
             .when('/', {
                 templateUrl: '/assets/resources.html',
@@ -45,19 +47,13 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
 
         $locationProvider.html5Mode(true);
 
-        // http://www.ng-newsletter.com/posts/angular-translate.html
-        // http://angular-translate.github.io
-        $translateProvider.translations('en', {
-            'ALERT': {
-                'Resource': {
-                    '401': 'Error loading resources because not authorized!',
-                    '404': 'Could not find the resource.'
-                },
-                'User': {
-                    '401': 'Error loading user because not authorized!'
-                }
-            }
+        // Translations
+        // http://angular-translate.github.io/
+        $translateProvider.useStaticFilesLoader({
+            prefix: '/assets/locale-',
+            suffix: '.json'
         });
 
+        //$translateProvider.useLocalStorage();
         $translateProvider.preferredLanguage('en');
     }]);
