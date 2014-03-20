@@ -1,4 +1,4 @@
-/*global app */
+/*global app, angular */
 
 app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resource',
                                   'License', 'ResourceTypes', 'Alert', 'User',
@@ -52,18 +52,26 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
 
         // Submit
         $scope.submit = function () {
-            var d = $scope.resource,
-                data = {
-                    name: d.name,
-                    url: d.url,
-                    description: d.description,
-                    resource_type_id: d.resourceType.uuid,
-                    license_id: d.license.uuid,
-                    tags: JSON.stringify(d.tags
-                           .split(',')
-                           .map(function (x) { return x.trim(); }))
-                };
+            var d = $scope.resource, data, tags = "";
 
+            // Create array with tags
+            if (angular.isDefined(d.tags) && d.tags.trim().length > 0) {
+                tags = JSON.stringify(d.tags
+                                       .split(',')
+                                       .map(function (x) { return x.trim(); }));
+            }
+
+            // Create data to send to server
+            data = {
+                name: d.name,
+                url: d.url,
+                description: d.description,
+                resource_type_id: d.resourceType.uuid,
+                license_id: d.license.uuid,
+                tags: tags
+            };
+
+            // Send to update if edit else save
             if ($routeParams.id) {
                 Resource.update({ id: $routeParams.id }, data, function (res) {
                     Alert.success('ALERT.Resource.PUT');

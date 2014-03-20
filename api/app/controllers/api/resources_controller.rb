@@ -21,7 +21,7 @@ class Api::ResourcesController < Api::BaseController
       r.resource_type_id = ResourceType.find_by_uuid(resource_params[:resource_type_id]).id
       r.license_id = License.find_by_uuid(resource_params[:license_id]).id
       r.user_id = current_resource_owner_user.id
-      r.tags = JSON.parse(resource_params[:tags])
+      r.tags = JSON.parse(resource_params[:tags]) unless resource_params[:tags].empty?
     end
 
     render 'api/resources/show'
