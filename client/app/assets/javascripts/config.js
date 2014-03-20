@@ -27,7 +27,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
             })
             .when('/resources/new', {
                 templateUrl: '/assets/new.html',
-                controller:  'ResourcesController'
+                controller:  'EditController'
             })
             .when('/resources/:id', {
                 templateUrl: '/assets/show.html',
@@ -35,7 +35,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
             })
             .when('/resources/:id/edit', {
                 templateUrl: '/assets/edit.html',
-                controller:  'DetailsController'
+                controller:  'EditController'
             })
             .when('/search?q=:query', {
                 templateUrl: '/assets/resources.html',

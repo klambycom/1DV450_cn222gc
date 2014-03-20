@@ -1,0 +1,8 @@
+#new {
+  @extend .col-md-12;
+
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}
