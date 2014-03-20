@@ -7,7 +7,9 @@
             "500":    "An error occurred, please try again later.",
             "PUT":    "The resource is updated.",
             "POST":   "The resource is saved.",
-            "DELETE": "The resource have been deleted"
+            "DELETE": "The resource have been deleted",
+            "Edit":   { "NotLoggedIn": "Login to edit resource." },
+            "Create": { "NotLoggedIn": "Login to create resource." }
         },
         "User": {
             "401": "Error loading user because not authorized!",
@@ -26,12 +28,6 @@
             "404": "Could not find the resource type.",
             "500": "An error occurred, please try again later."
         }
-    },
-    "Edit": {
-        "NotLoggedIn": "Login to edit resource."
-    },
-    "Create": {
-        "NotLoggedIn": "Login to create resource."
     },
     "User": {
         "Logout": "Your are now logged out!"

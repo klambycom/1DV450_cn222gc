@@ -8,7 +8,7 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         'use strict';
 
         if (!User.authenticated) {
-            Alert.info(($routeParams.id ? 'Edit' : 'Create') + '.NotLoggedIn');
+            Alert.info("ALERT.Resource." + ($routeParams.id ? 'Edit' : 'Create') + '.NotLoggedIn');
             $location.path('/');
         }
 
