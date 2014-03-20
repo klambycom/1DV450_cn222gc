@@ -30,12 +30,12 @@
           </li>
         </ul>
         <%# User %>
-        <p id="navbar-user" ng-controller="UserController">
-          <span ng-show="isSignedIn">
+        <p id="navbar-user">
+          <span ng-show="isAuthenticated">
             Inloggad som {{user.name}}
             <a ng-click="logout()" href="">Logga ut</a>
           </span>
-          <span ng-hide="isSignedIn"><a ng-click="login()" href="">Logga in</a></span>
+          <span ng-hide="isAuthenticated"><a ng-click="login()" href="">Logga in</a></span>
         </p>
       </div>
     </div>
