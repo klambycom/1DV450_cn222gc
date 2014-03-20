@@ -1,9 +1,8 @@
 /*global app, console */
 
 app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resource',
-                                  'License', 'ResourceTypes', 'AlertFactory',
-    function ($scope, $routeParams, $location, Resource, License,
-              ResourceTypes, AlertFactory) {
+                                  'License', 'ResourceTypes', 'Alert',
+    function ($scope, $routeParams, $location, Resource, License, ResourceTypes, Alert) {
 
         'use strict';
 
@@ -12,18 +11,18 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         // Get all data needed
         License.query(function (res) {
             $scope.licenses = res.items;
-        }, AlertFactory.error('License'));
+        }, Alert.error('License'));
 
         ResourceTypes.query(function (res) {
             $scope.resourceTypes = res.items;
-        }, AlertFactory.error('ResourceTypes'));
+        }, Alert.error('ResourceTypes'));
 
         if ($routeParams.id) {
             console.log($routeParams.id);
 
             Resource.get({ id: $routeParams.id }, function (res) {
                 $scope.resource = res;
-            }, AlertFactory.error('Resource'));
+            }, Alert.error('Resource'));
         }
 
         // Submit
@@ -38,6 +37,6 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
                 license_id: d.license.uuid
             }, function (data) {
                 $location.path('/resources/' + data.uuid);
-            }, AlertFactory.error('Resource'));
+            }, Alert.error('Resource'));
         };
     }]);

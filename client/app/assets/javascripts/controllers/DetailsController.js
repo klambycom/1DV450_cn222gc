@@ -1,10 +1,10 @@
 /*global app */
 
-app.controller('DetailsController', ['$scope', '$routeParams', 'Resource', 'AlertFactory',
-    function ($scope, $routeParams, Resource, AlertFactory) {
+app.controller('DetailsController', ['$scope', '$routeParams', 'Resource', 'Alert',
+    function ($scope, $routeParams, Resource, Alert) {
         'use strict';
 
         Resource.get({ id: $routeParams.id }, function (res) {
             $scope.resource = res;
-        }, AlertFactory.error('Resource'));
+        }, Alert.error('Resource'));
     }]);

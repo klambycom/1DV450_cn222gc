@@ -1,7 +1,7 @@
 /*jslint es5: true */
 /*global app, console, alert */
 
-app.factory('AlertFactory', function ($filter, $translate) {
+app.factory('Alert', ['$filter', '$translate', function ($filter, $translate) {
     'use strict';
 
     var createAlert = function (type) {
@@ -37,4 +37,4 @@ app.factory('AlertFactory', function ($filter, $translate) {
                 .catch(noTranslation);
         }
     };
-});
+}]);

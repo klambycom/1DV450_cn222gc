@@ -1,7 +1,7 @@
 /*global angular, app */
 
-app.controller('UserController', ['$scope', 'User', 'AlertFactory',
-    function ($scope, User, AlertFactory) {
+app.controller('UserController', ['$scope', 'User', 'Alert',
+    function ($scope, User, Alert) {
         'use strict';
 
         $scope.isSignedIn = User.authenticated;
@@ -22,6 +22,6 @@ app.controller('UserController', ['$scope', 'User', 'AlertFactory',
                     'lastname': res.lastname,
                     'email': res.email
                 };
-            }, AlertFactory.error('User'));
+            }, Alert.error('User'));
         }
     }]);
