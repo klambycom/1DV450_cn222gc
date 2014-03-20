@@ -28,7 +28,7 @@ app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
 
         $scope.logout = function () {
             $scope.user = { isAuthenticated: false };
-            Alert.success('User.Logout');
+            Alert.success('ALERT.User.Logout');
             User.logout();
         };
 

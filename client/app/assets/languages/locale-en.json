@@ -12,9 +12,10 @@
             "Create": { "NotLoggedIn": "Login to create resource." }
         },
         "User": {
-            "401": "Error loading user because not authorized!",
-            "404": "Coud not find the user.",
-            "500": "An error occurred, please try again later."
+            "401":    "Error loading user because not authorized!",
+            "404":    "Coud not find the user.",
+            "500":    "An error occurred, please try again later.",
+            "Logout": "Your are now logged out!"
         },
         "License": {
             "400": "Error in posted license data.",
@@ -28,8 +29,5 @@
             "404": "Could not find the resource type.",
             "500": "An error occurred, please try again later."
         }
-    },
-    "User": {
-        "Logout": "Your are now logged out!"
     }
 }
