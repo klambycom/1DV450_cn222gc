@@ -1,12 +1,12 @@
 /*global app, angular */
 
-app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
-    function ($scope, $timeout, User, Alert) {
+app.controller('MainController', ['$scope', '$timeout', '$location', 'User', 'Alert',
+    function ($scope, $timeout, $location, User, Alert) {
         'use strict';
 
-        // Messages
-        var alertTimeout;
+        var alertTimeout, queryTimeout;
         
+        // Messages
         $scope.showAlert = false;
 
         $scope.$on('alert', function (e, msg) {
@@ -45,4 +45,17 @@ app.controller('MainController', ['$scope', '$timeout', 'User', 'Alert',
                 };
             }, Alert.error('User'));
         }
+
+        // Search - with 200 ms delay
+        $scope.$watch('query', function () {
+            if (angular.isDefined(queryTimeout)) {
+                $timeout.cancel(queryTimeout);
+            }
+
+            queryTimeout = $timeout(function () {
+                $scope.$broadcast("search-query", $scope.query);
+            }, 200);
+
+            $location.path('/');
+        });
     }]);

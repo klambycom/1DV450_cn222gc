@@ -3,7 +3,11 @@
     <h1>Sökresultat</h1>
   </div>
 
-  <div class="resource" ng-repeat="resource in resources | filter:query">
+  <div class="resource" ng-show="resources.length == 0">
+    Det finns inget här, testa att söka på något annat.
+  </div>
+
+  <div class="resource" ng-repeat="resource in resources">
     <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
 
     <p>
@@ -33,7 +37,7 @@
     Kategorier
   </h2>
   <p>
-    <span ng-repeat-start="category in categories | unique:'uuid' | filter:query"
+    <span ng-repeat-start="category in categories | unique:'uuid'"
           class="label label-default"><a href="#">{{category.name}}</a></span>
     <span ng-repeat-end></span>
   </p>
@@ -43,7 +47,7 @@
     Taggar
   </h2>
   <p>
-    <span ng-repeat-start="tag in tags | unique:'uuid' | filter:query"
+    <span ng-repeat-start="tag in tags | unique:'uuid'"
           class="label label-default"><a href="#">{{tag.tag}}</a></span>
     <span ng-repeat-end></span>
   </p>

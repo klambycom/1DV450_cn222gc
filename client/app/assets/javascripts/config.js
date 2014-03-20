@@ -15,7 +15,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
 
         APIUrlProvider
             .users('http://api.lvh.me:3000/users/:id')
-            .resources('http://api.lvh.me:3000/resources/:id')
+            .resources('http://api.lvh.me:3000/resources/:id?query=:q')
             .licenses('http://api.lvh.me:3000/licenses/:id')
             .resourceTypes('http://api.lvh.me:3000/resource_types/:id')
             .tags('http://api.lvh.me:3000/tags/:id')
