@@ -53,6 +53,10 @@
     </div>
   </header>
 
+  <div id="message" ng-show="showAlert">
+    <div class="{{message.type}}">{{message.message}}</div>
+  </div>
+
   <div id="main" class="container">
     <div ng-view></div>
   </div>

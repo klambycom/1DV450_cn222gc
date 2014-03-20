@@ -1,0 +1,31 @@
+#message {
+  position: fixed;
+  top: 10px;
+  z-index: 10000;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  div {
+    display: inline;
+    padding: 5px;
+    color: white;
+
+    &.error {
+      background-color: rgba(255, 73, 73, 0.8);
+    }
+
+    &.warning {
+      background-color: rgba(255, 189, 73, 0.8);
+      color: black;
+    }
+
+    &.info {
+      background-color: rgba(73, 139, 255, 0.8);
+    }
+
+    &.success {
+      background-color: rgba(34, 126, 49, 0.8);
+    }
+  }
+}
