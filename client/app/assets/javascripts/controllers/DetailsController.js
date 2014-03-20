@@ -1,8 +1,9 @@
+/*jslint es5: true */
 /*global app, angular */
 
-app.controller('DetailsController', ['$scope', '$routeParams', 'Resource',
-                                     'Alert', 'User',
-    function ($scope, $routeParams, Resource, Alert, User) {
+app.controller('DetailsController', ['$scope', '$routeParams', '$location',
+                                     'Resource', 'Alert', 'User',
+    function ($scope, $routeParams, $location, Resource, Alert, User) {
         'use strict';
 
         $scope.createdByMe = false;
@@ -16,5 +17,15 @@ app.controller('DetailsController', ['$scope', '$routeParams', 'Resource',
             if (angular.isDefined(currentUser)) {
                 $scope.createdByMe = resourceUser.uuid === currentUser.uuid;
             }
-        }, Alert.error('Resource'));
+        }, function (error) {
+            Alert.error('Resource')(error);
+            if (error.status === 404) { $location.path('/'); }
+        });
+
+        $scope.remove = function () {
+            Resource.delete({ id: $routeParams.id }, function (res) {
+                Alert.success('ALERT.Resource.DELETE');
+                $location.path('/');
+            }, Alert.error('Resource'));
+        };
     }]);

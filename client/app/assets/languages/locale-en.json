@@ -1,12 +1,13 @@
 {
     "ALERT": {
         "Resource": {
-            "400":  "Error in posted resource data.",
-            "401":  "Error loading resources because not authorized!",
-            "404":  "Could not find the resource.",
-            "500":  "An error occurred, please try again later.",
-            "POST": "The resource is saved.",
-            "PUT":  "The resource is updated."
+            "400":    "Error in posted resource data.",
+            "401":    "Error loading resources because not authorized!",
+            "404":    "Could not find the resource.",
+            "500":    "An error occurred, please try again later.",
+            "PUT":    "The resource is updated.",
+            "POST":   "The resource is saved.",
+            "DELETE": "The resource have been deleted"
         },
         "User": {
             "401": "Error loading user because not authorized!",

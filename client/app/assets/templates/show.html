@@ -8,7 +8,7 @@
   <p ng-show="createdByMe" class="change-resource">
     <span class="glyphicon glyphicon-cog"></span>
     <a href="/resources/{{resource.uuid}}/edit">Ändra</a>
-    <a href="">Ta bort</a>
+    <a ng-click="remove()" href="">Ta bort</a>
   </p>
 
   <div class="user">
