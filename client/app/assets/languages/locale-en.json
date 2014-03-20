@@ -1,11 +1,27 @@
 {
     "ALERT": {
         "Resource": {
+            "400": "Error in posted resource data.",
             "401": "Error loading resources because not authorized!",
-            "404": "Could not find the resource."
+            "404": "Could not find the resource.",
+            "500": "An error occurred, please try again later."
         },
         "User": {
-            "401": "Error loading user because not authorized!"
+            "401": "Error loading user because not authorized!",
+            "404": "Coud not find the user.",
+            "500": "An error occurred, please try again later."
+        },
+        "License": {
+            "400": "Error in posted license data.",
+            "401": "Error loading license because not authorized!",
+            "404": "Could not find the license.",
+            "500": "An error occurred, please try again later."
+        },
+        "ResourceTypes": {
+            "400": "Error in posted resource type data.",
+            "401": "Error loading resource type because not authorized!",
+            "404": "Could not find the resource type.",
+            "500": "An error occurred, please try again later."
         }
     },
     "Edit": {
