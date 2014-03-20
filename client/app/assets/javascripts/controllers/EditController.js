@@ -15,29 +15,38 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         var find = function (obj, k) {
                 return function (x) { return obj[k] === x[k]; };
             },
-            dot = function (k) { return function (x) { return x[k]; }; };
+            dot = function (k) { return function (x) { return x[k]; }; },
+            licensePromise,
+            resourceTypePromise;
 
         $scope.resource = {};
 
         // Get all data needed
-        License.query(function (res) {
+        licensePromise = License.query(function (res) {
             $scope.licenses = res.items;
-        }, Alert.error('License'));
+        }, Alert.error('License')).$promise;
 
-        ResourceTypes.query(function (res) {
+        resourceTypePromise = ResourceTypes.query(function (res) {
             $scope.resourceTypes = res.items;
-        }, Alert.error('ResourceTypes'));
+        }, Alert.error('ResourceTypes')).$promise;
 
+        // Get resource if edit
         if ($routeParams.id) {
             Resource.get({ id: $routeParams.id }, function (res) {
                 $scope.resource = res;
-                $scope.resource.tags = res.tags
-                                          .map(dot('tag'))
-                                          .join(', ');
-                $scope.resource.license = $scope.licenses
-                    .filter(find(res.license, 'uuid'))[0];
-                $scope.resource.resourceType = $scope.resourceTypes
-                    .filter(find(res.resource_type, 'uuid'))[0];
+                $scope.resource.tags = res.tags.map(dot('tag')).join(', ');
+
+                // Find current license
+                licensePromise.then(function () {
+                    $scope.resource.license = $scope.licenses
+                        .filter(find(res.license, 'uuid'))[0];
+                });
+
+                // Find current resource type
+                resourceTypePromise.then(function () {
+                    $scope.resource.resourceType = $scope.resourceTypes
+                        .filter(find(res.resource_type, 'uuid'))[0];
+                });
             }, Alert.error('Resource'));
         }
 
