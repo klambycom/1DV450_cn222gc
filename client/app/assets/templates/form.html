@@ -1,0 +1,84 @@
+<div class="form-group"
+     ng-class="{ 'has-success' : resourceForm.name.$valid }">
+  <label for="name">Namn</label>
+  <input type="text"
+         class="form-control"
+         ng-model="resource.name"
+         id="name"
+         name="name"
+         ng-maxlength="255"
+         required>
+  <p ng-show="resourceForm.name.$error.maxlength" class="help-block">
+    Namnet får max vara 255 tecken långt.
+  </p>
+  <p ng-show="resourceForm.name.$invalid && !resourceForm.name.$pristine" class="help-block">
+    Du måste ange ett namn.
+  </p>
+</div>
+
+<div class="form-group"
+     ng-class="{ 'has-success' : resourceForm.url.$valid }">
+  <label for="url">Url</label>
+  <input type="text"
+         class="form-control"
+         ng-model="resource.url"
+         id="url"
+         name="url"
+         ng-maxlength="255"
+         required>
+  <p ng-show="resourceForm.url.$error.maxlength" class="help-block">
+    Urlen får max vara 255 tecken långt.
+  </p>
+  <p ng-show="resourceForm.name.$invalid && !resourceForm.name.$pristine" class="help-block">
+    Du måste ange en url.
+  </p>
+</div>
+
+<div class="form-group" ng-class="{ 'has-success' : resourceForm.description.$valid }">
+  <label for="description">Beskrivning</label>
+  <textarea id="description"
+            name="description"
+            class="form-control"
+            rows="10"
+            ng-model="resource.description"
+            ng-minlength="10"
+            ng-maxlength="255"></textarea>
+  <p ng-show="resourceForm.description.$error.minlength" class="help-block">
+    Beskrivningen måste vara längre än 10 tecken.
+  </p>
+  <p ng-show="resourceForm.description.$error.maxlength" class="help-block">
+    Beskrivningen får max vara 255 tecken lång.
+  </p>
+</div>
+
+<div class="form-group">
+  <label for="tags">Taggar</label>
+  <input type="text" class="form-control" ng-model="resource.tags" id="tags">
+  <p class="help-block">Separera taggarna med kommatecken. Exempel: youtube, haskell, functional programming.</p>
+</div>
+
+<div class="form-group" ng-class="{ 'has-success' : resourceForm.license.$valid }">
+  <label for="license">Licens</label>
+  <select id="license"
+          name="license"
+          class="form-control"
+          ng-model="resource.license"
+          ng-options="license.name for license in licenses"
+          required></select>
+  <p ng-show="resourceForm.license.$invalid && !resourceForm.license.$pristine" class="help-block">
+    Resursen måste ha en licens.
+  </p>
+</div>
+
+<div class="form-group" ng-class="{ 'has-success' : resourceForm.resourceType.$valid }">
+  <label for="resourceType">Kategori</label>
+  <select id="resourceType"
+          name="resourceType"
+          class="form-control"
+          ng-model="resource.resourceType"
+          ng-options="resourceType.name for resourceType in resourceTypes"
+          required></select>
+  <p ng-show="resourceForm.resourceType.$invalid && !resourceForm.resourceType.$pristine" class="help-block">
+    Resursen måste ha en kategori.
+  </p>
+</div>

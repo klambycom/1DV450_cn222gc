@@ -51,7 +51,7 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         }
 
         // Submit
-        $scope.submit = function () {
+        $scope.submit = function (isValid) {
             var d = $scope.resource, data, tags = "";
 
             // Create array with tags
