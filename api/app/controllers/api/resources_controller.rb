@@ -14,14 +14,16 @@ class Api::ResourcesController < Api::BaseController
   end
 
   def create
-    @resource = Resource.new
-    @resource.name = resource_params[:name]
-    @resource.url = resource_params[:url]
-    @resource.description = resource_params[:description]
-    @resource.resource_type_id = ResourceType.find_by_uuid(resource_params[:resource_type_id]).id
-    @resource.license_id = License.find_by_uuid(resource_params[:license_id]).id
-    @resource.user_id = current_resource_owner_user.id
-    @resource.save!
+    @resource = Resource.create! do |r|
+      r.name = resource_params[:name]
+      r.url = resource_params[:url]
+      r.description = resource_params[:description]
+      r.resource_type_id = ResourceType.find_by_uuid(resource_params[:resource_type_id]).id
+      r.license_id = License.find_by_uuid(resource_params[:license_id]).id
+      r.user_id = current_resource_owner_user.id
+      r.tags = JSON.parse(resource_params[:tags])
+    end
+
     render 'api/resources/show'
   end
 

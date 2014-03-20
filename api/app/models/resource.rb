@@ -23,4 +23,10 @@ class Resource < ActiveRecord::Base
       self.uuid = SecureRandom.uuid
     end while self.class.exists? uuid: uuid
   end
+
+  def tags= new_tags
+    new_tags.each do |tag|
+      tags << Tag.find_or_create_by_tag(tag)
+    end
+  end
 end

@@ -6,9 +6,10 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
 
         'use strict';
 
-        var find = function (obj, key) {
-            return function (x) { return obj[key] === x[key]; };
-        };
+        var find = function (obj, k) {
+                return function (x) { return obj[k] === x[k]; };
+            },
+            dot = function (k) { return function (x) { return x[k]; }; };
 
         $scope.resource = {};
 
@@ -24,6 +25,9 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
         if ($routeParams.id) {
             Resource.get({ id: $routeParams.id }, function (res) {
                 $scope.resource = res;
+                $scope.resource.tags = res.tags
+                                          .map(dot('tag'))
+                                          .join(', ');
                 $scope.resource.license = $scope.licenses
                     .filter(find(res.license, 'uuid'))[0];
                 $scope.resource.resourceType = $scope.resourceTypes
@@ -39,15 +43,18 @@ app.controller('EditController', ['$scope', '$routeParams', '$location', 'Resour
                     url: d.url,
                     description: d.description,
                     resource_type_id: d.resourceType.uuid,
-                    license_id: d.license.uuid
+                    license_id: d.license.uuid,
+                    tags: JSON.stringify(d.tags
+                           .split(',')
+                           .map(function (x) { return x.trim(); }))
                 };
 
             if ($routeParams.id) {
-                Resource.save(data, function (res) {
+                Resource.update({ id: $routeParams.id }, data, function (res) {
                     $location.path('/resources/' + res.uuid);
                 }, Alert.error('Resource'));
             } else {
-                Resource.update({ id: $routeParams.id }, data, function (res) {
+                Resource.save(data, function (res) {
                     $location.path('/resources/' + res.uuid);
                 }, Alert.error('Resource'));
             }

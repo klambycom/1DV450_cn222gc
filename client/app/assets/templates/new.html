@@ -21,6 +21,12 @@
     </div>
 
     <div class="form-group">
+      <label for="tags">Taggar</label>
+      <input type="text" class="form-control" ng-model="resource.tags" id="tags">
+      <p class="help-block">Separera taggarna med kommatecken. Exempel: youtube, haskell, functional programming.</p>
+    </div>
+
+    <div class="form-group">
       <label for="license">Licens</label>
       <select id="license"
               class="form-control"
