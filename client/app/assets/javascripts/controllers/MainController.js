@@ -43,7 +43,9 @@ app.controller('MainController', ['$scope', '$timeout', '$location', 'User', 'Al
                     'isAdmin': res.admin,
                     'isAuthenticated': true
                 };
-            }, Alert.error('User'));
+            }, function (e) {
+                if (e.status !== 401) { Alert.error('User')(e.status); }
+            });
         }
 
         // Search - with 200 ms delay

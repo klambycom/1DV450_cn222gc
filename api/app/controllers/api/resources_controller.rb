@@ -17,11 +17,19 @@ class Api::ResourcesController < Api::BaseController
       r = r.where(license_id: License.find_by_uuid(params[:license]).id)
     end
 
+    if params[:tag]
+      r = r.find(:all, include: :tags, conditions: ['tags.uuid = ?', params[:tag]])
+    end
+
     @offset = params[:offset] || 0
     @limit = params[:limit] || 10
     @length = r.length
 
-    @resources = r.offset(@offset).limit(@limit)
+    if params[:tag]
+      @resources = r.drop(@offset).take(@limit)
+    else
+      @resources = r.offset(@offset).limit(@limit)
+    end
   end
 
   def show

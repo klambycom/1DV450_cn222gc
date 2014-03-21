@@ -24,6 +24,11 @@
             "500":     "An error occurred, please try again later.",
             "Created": "License successfully created."
         },
+        "Tag": {
+            "401": "Error loading tag because not authorized!",
+            "404": "Could not find the tag.",
+            "500": "An error occurred, please try again later."
+        },
         "ResourceTypes": {
             "400":     "Error in posted resource type data.",
             "401":     "Error loading resource type because not authorized!",

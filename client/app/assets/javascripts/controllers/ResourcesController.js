@@ -1,8 +1,8 @@
 /*global angular, app */
 
-app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes',
-                                       'License', 'Alert',
-    function ($scope, Resource, ResourceTypes, License, Alert) {
+app.controller('ResourcesController', ['$scope', '$routeParams', '$location', 'Resource',
+                                       'ResourceTypes', 'License', 'Alert', 'Tag',
+    function ($scope, $routeParams, $location, Resource, ResourceTypes, License, Alert, Tag) {
         'use strict';
 
         var dot = function (a) { return function (b) { return b[a]; }; },
@@ -18,19 +18,29 @@ app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes',
             category = { name: "Alla", uuid: "alla" },
             license = { name: "Alla", uuid: "alla" },
             getResource = function (offset) {
-                var data = { q: q };
+                var data = { query: q };
                 if (angular.isDefined(offset)) { data.offset = offset; }
                 if (category.name !== "Alla") { data.category = category.uuid; }
                 if (license.name !== "Alla") { data.license = license.uuid; }
                 Resource.get(data, scopeResult, Alert.error('Resource'));
+                $location.path('/');
             };
 
-        Resource.get(scopeResult, Alert.error('Resource'));
+        if ($routeParams.id) {
+            Resource.get({ tag: $routeParams.id }, scopeResult, Alert.error('Resource'));
+            Tag.get({ id: $routeParams.id }, function (res) {
+                $scope.tag = res;
+            }, Alert.error('Tag'));
+        } else {
+            Resource.get(scopeResult, Alert.error('Resource'));
+        }
 
         // Search
         $scope.$on("search-query", function (e, query) {
-            q = query;
-            getResource();
+            if (angular.isDefined(query)) {
+                q = query;
+                getResource();
+            }
         });
 
         // Pagination

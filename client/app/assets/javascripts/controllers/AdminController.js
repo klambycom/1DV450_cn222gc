@@ -1,14 +1,9 @@
 /*global app, angular */
 
-app.controller('AdminController', ['$scope', '$location', 'User', 'Alert',
+app.controller('AdminController', ['$scope', '$location', 'Alert',
                                    'ResourceTypes', 'License',
-    function ($scope, $location, User, Alert, ResourceTypes, License) {
+    function ($scope, $location, Alert, ResourceTypes, License) {
         'use strict';
-
-        if (!User.me().isAdmin) {
-            Alert.info('ALERT.NotAdmin');
-            $location.path('/');
-        }
 
         // License
         $scope.license = {};

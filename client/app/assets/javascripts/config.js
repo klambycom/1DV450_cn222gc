@@ -11,11 +11,11 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
 
         // API
         AuthorizationProvider
-            .setApplicationId('98540e836d1cb2ea0c0a6e2258bcbd3efec7fc22ef7c7d8b31745d192706fe3c');
+            .setApplicationId('14fcde9a04e4c630f5d2a7682723f9d698c8188492035a7d75a3b930fa609366');
 
         APIUrlProvider
             .users('http://api.lvh.me:3000/users/:id')
-            .resources('http://api.lvh.me:3000/resources/:id?query=:q&offset=:offset')
+            .resources('http://api.lvh.me:3000/resources/:id')
             .licenses('http://api.lvh.me:3000/licenses/:id')
             .resourceTypes('http://api.lvh.me:3000/resource_types/:id')
             .tags('http://api.lvh.me:3000/tags/:id')
@@ -47,6 +47,10 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
                 templateUrl: '/assets/newlicense.html',
                 controller:  'AdminController'
             })
+            .when('/tags/:id', {
+                templateUrl: '/assets/resources.html',
+                controller:  'ResourcesController'
+            })
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);
@@ -59,5 +63,5 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
         });
 
         //$translateProvider.useLocalStorage();
-        $translateProvider.preferredLanguage('en');
+        $translateProvider.preferredLanguage('sv');
     }]);

@@ -26,8 +26,17 @@ psychedelicTag = Tag.create(tag: "Psykedelisk")
 Tag.create(tag: "77-punk")
 Tag.create(tag: "Hardcore")
 Tag.create(tag: "Trallpunk")
+h1 = Tag.create(tag: "Funktionell programmering")
+h2 = Tag.create(tag: "Haskell")
+h3 = Tag.create(tag: "Programmering")
 
 videoResourceType = ResourceType.create(name: "Video")
+
+youtubeLicense = License.create(
+  name: "Standardlicens för YouTube",
+  url: "http://www.youtube.com/", 
+  description:
+%q(Vet inte så mycket om licensen.))
 
 mitLicense = License.create(
   name: "MIT",
@@ -63,6 +72,20 @@ resource.tags << rockTag
 resource.tags << psychedelicTag
 
 resource.save
+
+haskell = Resource.create(name: "Programming - Why Haskell is Great - 10 minutes",
+                          url: "https://www.youtube.com/watch?v=RqvCNb7fKsg",
+                          description: "Väldigt rolig och intressant video.")
+
+haskell.resource_type = videoResourceType
+haskell.license = youtubeLicense
+haskell.user = member
+
+haskell.tags << h1
+haskell.tags << h2
+haskell.tags << h3
+
+haskell.save
 
 #################
 # Documentation #
@@ -473,6 +496,10 @@ För att använda get måste du skicka med API nycket, `Authorization: Token tok
 * offset, vilken post som resultatet ska börja på.
 * limit, antalet poster.
 * only, vilka fält som ska skickas med i svaret.
+* query
+* category, kategori uuid.
+* license, licens uuid.
+* tag, tagg uuid.
 
 ### Format
 * json

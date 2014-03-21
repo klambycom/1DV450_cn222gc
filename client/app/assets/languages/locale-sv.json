@@ -1,0 +1,41 @@
+{
+    "ALERT": {
+        "Resource": {
+            "400":    "Den postade resursen innehåller felaktiga uppgifter.",
+            "401":    "Det går inte att hämta resursen pga auktorisering.",
+            "404":    "Kan inte hitta resursen.",
+            "500":    "Något gick fel, försök igen senare.",
+            "PUT":    "Resursen har uppdaterats.",
+            "POST":   "Resursen har sparats.",
+            "DELETE": "Resursen har tagits bort.",
+            "Edit":   { "NotLoggedIn": "Logga in för att ändra resursen." },
+            "Create": { "NotLoggedIn": "Logga in för att skapa en resurs." }
+        },
+        "User": {
+            "401":    "Det går inte att hämta användaren pga auktorisering.",
+            "404":    "Kan inte hitta användaren.",
+            "500":    "Något gick fel, försök igen senare.",
+            "Logout": "Du är utloggad!"
+        },
+        "License": {
+            "400":     "Den postade licensen innehåller felaktiga uppgifter.",
+            "401":     "Det går inte att hämta licensen pga auktorisering.",
+            "404":     "Kan inte hitta licensen.",
+            "500":     "Något gick fel, försök igen senare.",
+            "Created": "Licensen skapades."
+        },
+        "Tag": {
+            "401": "Det går inte att hämta taggen pga auktorisering.",
+            "404": "Kan inte hitta taggen.",
+            "500": "Något gick fel, försök igen senare."
+        },
+        "ResourceTypes": {
+            "400":     "Den postade kategorien innehåller felaktiga uppgifter.",
+            "401":     "Det går inte att hämta kategorien pga auktorisering.",
+            "404":     "Kan inte hitta kategorien.",
+            "500":     "Något gick fel, försök igen senare.",
+            "Created": "Kategorin skapades."
+        },
+        "NotAdmin": "Du är inte admin."
+    }
+}

@@ -6,49 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="TOERH" data-no-turbolink>
-  <nav role="navigation">
-    <div class="container">
-      <%# Site name %>
-      <div id="navbar-header">
-        <a href="#">TOERH</a>
-      </div>
-      <%# Menu %>
-      <div id="navbar-menu">
-        <ul>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-home"></span>
-              Förstasidan
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="glyphicon glyphicon-pencil"></span>
-              Skapa ny resurs
-            </a>
-          </li>
-        </ul>
-        <%# User %>
-        <p id="navbar-user">
-          Inloggad som <a href="#">Christian Nilsson</a>
-        </p>
-      </div>
-    </div>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>Open Education Resources</h1>
-
-      <p>hej</p>
-
-      <div id="search">
-        <input ng-model="query" placeholder="Sök resurs">
-      </div>
-    </div>
-  </header>
-
+<body>
   <div class="container">
     <% flash.each do |type, error| %>
       <div class="alert alert-<%= type %>"><%= error %></div>
@@ -56,14 +14,5 @@
 
     <%= yield %>
   </div>
-
-  <footer>
-    <div class="container">
-      Skapad av Christian Nilsson ·
-      <a href="#">API</a> ·
-      <a href="#">Dokumentation</a>
-      <%#= debug params if Rails.env.development? %>
-    </div>
-  </footer>
 </body>
 </html>

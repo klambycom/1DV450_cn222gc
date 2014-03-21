@@ -11,6 +11,12 @@
     <div class="container">
       <%# Site name %>
       <div id="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
         <a href="/">TOERH</a>
       </div>
       <%# Menu %>
@@ -56,7 +62,7 @@
     <div class="container">
       <h1>Open Education Resources</h1>
 
-      <p>hej</p>
+      <p>Användbara resurser för lärare.</p>
 
       <div id="search">
         <input ng-model="query" placeholder="Sök resurs">
@@ -74,9 +80,9 @@
 
   <footer>
     <div class="container">
-      Skapad av Christian Nilsson ·
-      <a href="#">API</a> ·
-      <a href="#">Dokumentation</a>
+      Skapad av Christian Nilsson? ·
+      <a href="http://developers.lvh.me:3000">API</a> ·
+      <a href="http://developers.lvh.me:3000/docs/kom-igang">Dokumentation</a>
       <%#= debug params if Rails.env.development? %>
     </div>
   </footer>

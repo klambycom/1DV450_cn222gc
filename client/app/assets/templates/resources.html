@@ -3,6 +3,10 @@
     <h1>Sökresultat</h1>
   </div>
 
+  <div class="page-header" ng-show="tag">
+    <h1>Visar taggen "{{tag.tag}}"</h1>
+  </div>
+
   <div class="resource" ng-show="resources.length == 0">
     Det finns inget här, testa att söka på något annat.
   </div>
@@ -67,8 +71,8 @@
     Taggar
   </h2>
   <p>
-    <span ng-repeat-start="tag in tags | unique:'uuid'"
-          class="label label-default"><a href="#">{{tag.tag}}</a></span>
+    <span ng-repeat-start="t in tags | unique:'uuid'"
+          class="label label-default"><a href="/tags/{{t.uuid}}">{{t.tag}}</a></span>
     <span ng-repeat-end></span>
   </p>
 </aside>
