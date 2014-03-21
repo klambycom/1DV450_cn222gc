@@ -24,6 +24,7 @@ som redirect uri.
 ### Klient
 
 Ändra applikations id och secret:
+
 `export APPLICATION_ID="ÄNDRA HÄR"`
 `export APPLICATION_SECRET="ÄNDRA HÄR"`
 
