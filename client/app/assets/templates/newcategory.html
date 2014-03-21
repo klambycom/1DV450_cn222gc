@@ -1,1 +1,20 @@
-<h1>Ny kategori</h1>
+<div id="new">
+  <div class="page-header">
+    <h1>Skapa ny kategori</h1>
+  </div>
+
+  <form name="resourceTypeForm" ng-submit="submitResourceType()" novalidate>
+    <div class="form-group">
+      <label for="name">Namn</label>
+      <input type="text"
+             class="form-control"
+             ng-model="resourceType.name"
+             id="name"
+             name="name"
+             required>
+    </div>
+
+    <input type="submit" ng-disabled="resourceTypeForm.$invalid" value="Skapa">
+    <p ng-show="resourceTypeForm.$invalid" class="help-block">Du måste fylla i alla fälten.</p>
+  </form>
+</div>

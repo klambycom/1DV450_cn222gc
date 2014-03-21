@@ -18,16 +18,19 @@
             "Logout": "Your are now logged out!"
         },
         "License": {
-            "400": "Error in posted license data.",
-            "401": "Error loading license because not authorized!",
-            "404": "Could not find the license.",
-            "500": "An error occurred, please try again later."
+            "400":     "Error in posted license data.",
+            "401":     "Error loading license because not authorized!",
+            "404":     "Could not find the license.",
+            "500":     "An error occurred, please try again later.",
+            "Created": "License successfully created."
         },
         "ResourceTypes": {
-            "400": "Error in posted resource type data.",
-            "401": "Error loading resource type because not authorized!",
-            "404": "Could not find the resource type.",
-            "500": "An error occurred, please try again later."
-        }
+            "400":     "Error in posted resource type data.",
+            "401":     "Error loading resource type because not authorized!",
+            "404":     "Could not find the resource type.",
+            "500":     "An error occurred, please try again later.",
+            "Created": "Resource type successfully created."
+        },
+        "NotAdmin": "You are not admin."
     }
 }

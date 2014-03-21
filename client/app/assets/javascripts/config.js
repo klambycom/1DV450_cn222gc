@@ -44,7 +44,7 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
                 controller:  'AdminController'
             })
             .when('/licenses/new', {
-                templateUrl: '/assets/newtag.html',
+                templateUrl: '/assets/newlicense.html',
                 controller:  'AdminController'
             })
             .otherwise({ redirectTo: '/' });

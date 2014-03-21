@@ -56,6 +56,8 @@ app.controller('MainController', ['$scope', '$timeout', '$location', 'User', 'Al
                 $scope.$broadcast("search-query", $scope.query);
             }, 200);
 
-            $location.path('/');
+            if (angular.isDefined($scope.query) && $scope.query.length > 0) {
+                $location.path('/');
+            }
         });
     }]);
