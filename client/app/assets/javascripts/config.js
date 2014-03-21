@@ -39,9 +39,13 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider',
                 templateUrl: '/assets/edit.html',
                 controller:  'EditController'
             })
-            .when('/search?q=:query', {
-                templateUrl: '/assets/resources.html',
-                controller:  'ResourcesController'
+            .when('/categories/new', {
+                templateUrl: '/assets/newcategory.html',
+                controller:  'AdminController'
+            })
+            .when('/licenses/new', {
+                templateUrl: '/assets/newtag.html',
+                controller:  'AdminController'
             })
             .otherwise({ redirectTo: '/' });
 

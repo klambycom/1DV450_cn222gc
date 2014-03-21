@@ -43,6 +43,20 @@ nav {
         }
       }
     }
+
+    ul.dropdown-menu li {
+      width: 100%;
+
+      &:hover {
+        background-color: #E2E2E2;
+      }
+
+      a {
+        color: rgb(53, 53, 53);
+        font-size: 1em;
+        padding: 10px;
+      }
+    }
   }
 
   #navbar-user {

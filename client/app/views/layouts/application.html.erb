@@ -22,11 +22,22 @@
               Förstasidan
             </a>
           </li>
-          <li>
+          <li ng-show="user.isAuthenticated">
             <a href="/resources/new">
               <span class="glyphicon glyphicon-pencil"></span>
               Skapa ny resurs
             </a>
+          </li>
+          <li class="dropdown" ng-show="user.isAdmin">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-wrench"></span>
+              Admin
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/categories/new">Skapa ny kategori</a></li>
+              <li><a href="/licenses/new">Skapa ny licens</a></li>
+            </ul>
           </li>
         </ul>
         <%# User %>
