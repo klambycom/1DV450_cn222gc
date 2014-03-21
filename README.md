@@ -25,8 +25,10 @@ som redirect uri.
 
 Ändra applikations id och secret:
 
-`export APPLICATION_ID="ÄNDRA HÄR"`
-`export APPLICATION_SECRET="ÄNDRA HÄR"`
+```
+export APPLICATION_ID="ÄNDRA HÄR"
+export APPLICATION_SECRET="ÄNDRA HÄR"
+```
 
 Eller ändra i filen `client/config/initializers/omniauth.rb`.
 
