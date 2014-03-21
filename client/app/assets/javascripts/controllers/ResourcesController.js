@@ -1,7 +1,7 @@
 /*global angular, app */
 
-app.controller('ResourcesController', ['$scope', 'Resource', 'Alert',
-    function ($scope, Resource, Alert) {
+app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes', 'Alert',
+    function ($scope, Resource, ResourceTypes, Alert) {
         'use strict';
 
         var dot = function (a) { return function (b) { return b[a]; }; },
@@ -9,26 +9,32 @@ app.controller('ResourcesController', ['$scope', 'Resource', 'Alert',
             scopeResult = function (res) {
                 $scope.resources = res.items;
                 $scope.meta = res.meta;
-                $scope.categories = res.items.map(dot('resource_type'));
                 $scope.tags = flatten(res.items.map(dot('tags')));
 
                 $scope.pages = Math.ceil($scope.meta.length / $scope.meta.limit);
             },
-            q = "";
+            q = "",
+            category = { name: "Alla", uuid: "alla" },
+            getResource = function (offset) {
+                var data = { q: q };
+                if (angular.isDefined(offset)) { data.offset = offset; }
+                if (category.name !== "Alla") { data.category = category.uuid; }
+                Resource.get(data, scopeResult, Alert.error('Resource'));
+            };
 
         Resource.get(scopeResult, Alert.error('Resource'));
 
         // Search
         $scope.$on("search-query", function (e, query) {
             q = query;
-            Resource.get({ q: query }, scopeResult, Alert.error('Resource'));
+            getResource();
         });
 
         // Pagination
         $scope.currentPage = 0;
 
         $scope.$watch('currentPage', function (curr, prev) {
-            Resource.get({ q: q, offset: curr * 10 }, scopeResult, Alert.error('Resource'));
+            if (curr !== prev) { getResource(curr * 10); }
         });
 
         $scope.range = function (n) {
@@ -51,4 +57,18 @@ app.controller('ResourcesController', ['$scope', 'Resource', 'Alert',
         $scope.setPage = function () {
             $scope.currentPage = this.n;
         };
+
+        // Select category
+        ResourceTypes.get(function (res) {
+            $scope.category = { name: "Alla", uuid: "alla" };
+            res.items.push($scope.category);
+            $scope.categories = res.items;
+        }, Alert.error('ResourceTypes'));
+
+        $scope.$watch('category', function (curr, prev) {
+            if (angular.isDefined(prev) && (prev !== curr)) {
+                category = curr;
+                getResource();
+            }
+        });
     }]);

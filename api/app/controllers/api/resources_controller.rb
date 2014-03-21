@@ -9,6 +9,10 @@ class Api::ResourcesController < Api::BaseController
   def index
     r = Resource.search(params[:query || ""])
 
+    if params[:category]
+      r = r.where(resource_type_id: ResourceType.find_by_uuid(params[:category]).id)
+    end
+
     @offset = params[:offset] || 0
     @limit = params[:limit] || 10
     @length = r.length

@@ -51,9 +51,7 @@
     Kategorier
   </h2>
   <p>
-    <span ng-repeat-start="category in categories | unique:'uuid'"
-          class="label label-default"><a href="#">{{category.name}}</a></span>
-    <span ng-repeat-end></span>
+    <select ng-model="category" ng-options="c.name for c in categories | unique:'uuid'"></select>
   </p>
 
   <h2>
