@@ -34,8 +34,20 @@ class Resource < ActiveRecord::Base
   end
 
   def tags= new_tags
+    new_tags = JSON.parse(new_tags) if new_tags.is_a?(String) && !new_tags.empty?
+
+    self.tags.delete_all
+
     new_tags.each do |tag|
-      tags << Tag.find_or_create_by_tag(tag)
+      self.tags << Tag.find_or_create_by_tag(tag)
     end
+  end
+
+  def resource_type_id= uuid
+    self.resource_type = ResourceType.find_by_uuid(uuid)
+  end
+
+  def license_id= uuid
+    self.license = License.find_by_uuid(uuid)
   end
 end

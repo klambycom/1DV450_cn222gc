@@ -11,15 +11,15 @@
     <h2><a href="{{resource.url}}">{{resource.name}}</a></h2>
 
     <p>
-      {{resource.description}}
-      <a href="/resources/{{resource.uuid}}">[Mer]</a>
+      <small ng-repeat="tag in resource.tags" class='tag'>
+        <span class="glyphicon glyphicon-tag"></span>
+        {{tag.tag}}
+      </small>
+    </p>
 
-      <span ng-repeat="tag in resource.tags" class='tag'>
-        <a href="/tags/{{tag.uuid}}">
-          <span class="glyphicon glyphicon-tag"></span>
-          {{tag.tag}}
-        </a>
-      </span>
+    <p>
+      {{resource.description}}
+      <a href="/resources/{{resource.uuid}}">Läs mer</a>
     </p>
 
     <small>
