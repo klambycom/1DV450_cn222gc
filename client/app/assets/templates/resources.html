@@ -55,6 +55,14 @@
   </p>
 
   <h2>
+    <span class="glyphicon glyphicon-briefcase"></span>
+    Licenser
+  </h2>
+  <p>
+    <select ng-model="license" ng-options="l.name for l in licenses | unique:'uuid'"></select>
+  </p>
+
+  <h2>
     <span class="glyphicon glyphicon-tag"></span>
     Taggar
   </h2>

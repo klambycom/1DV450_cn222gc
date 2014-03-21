@@ -1,7 +1,8 @@
 /*global angular, app */
 
-app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes', 'Alert',
-    function ($scope, Resource, ResourceTypes, Alert) {
+app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes',
+                                       'License', 'Alert',
+    function ($scope, Resource, ResourceTypes, License, Alert) {
         'use strict';
 
         var dot = function (a) { return function (b) { return b[a]; }; },
@@ -15,10 +16,12 @@ app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes', 'A
             },
             q = "",
             category = { name: "Alla", uuid: "alla" },
+            license = { name: "Alla", uuid: "alla" },
             getResource = function (offset) {
                 var data = { q: q };
                 if (angular.isDefined(offset)) { data.offset = offset; }
                 if (category.name !== "Alla") { data.category = category.uuid; }
+                if (license.name !== "Alla") { data.license = license.uuid; }
                 Resource.get(data, scopeResult, Alert.error('Resource'));
             };
 
@@ -60,14 +63,28 @@ app.controller('ResourcesController', ['$scope', 'Resource', 'ResourceTypes', 'A
 
         // Select category
         ResourceTypes.get(function (res) {
-            $scope.category = { name: "Alla", uuid: "alla" };
-            res.items.push($scope.category);
+            $scope.category = category;
+            res.items.push(category);
             $scope.categories = res.items;
         }, Alert.error('ResourceTypes'));
 
         $scope.$watch('category', function (curr, prev) {
             if (angular.isDefined(prev) && (prev !== curr)) {
                 category = curr;
+                getResource();
+            }
+        });
+
+        // Select license
+        License.get(function (res) {
+            $scope.license = license;
+            res.items.push(license);
+            $scope.licenses = res.items;
+        }, Alert.error('License'));
+
+        $scope.$watch('license', function (curr, prev) {
+            if (angular.isDefined(prev) && (prev !== curr)) {
+                license = curr;
                 getResource();
             }
         });

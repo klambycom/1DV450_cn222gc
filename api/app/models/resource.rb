@@ -34,12 +34,14 @@ class Resource < ActiveRecord::Base
   end
 
   def tags= new_tags
-    new_tags = JSON.parse(new_tags) if new_tags.is_a?(String) && !new_tags.empty?
-
     self.tags.delete_all
 
-    new_tags.each do |tag|
-      self.tags << Tag.find_or_create_by_tag(tag)
+    unless new_tags.empty?
+      new_tags = JSON.parse(new_tags) if new_tags.is_a?(String)
+
+      new_tags.each do |tag|
+        self.tags << Tag.find_or_create_by_tag(tag)
+      end
     end
   end
 

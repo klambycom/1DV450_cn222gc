@@ -13,6 +13,10 @@ class Api::ResourcesController < Api::BaseController
       r = r.where(resource_type_id: ResourceType.find_by_uuid(params[:category]).id)
     end
 
+    if params[:license]
+      r = r.where(license_id: License.find_by_uuid(params[:license]).id)
+    end
+
     @offset = params[:offset] || 0
     @limit = params[:limit] || 10
     @length = r.length
